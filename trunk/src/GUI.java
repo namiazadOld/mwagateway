@@ -5,12 +5,13 @@ import edu.uci.isr.myx.fw.IMyxName;
 public class GUI extends AbstractMyxSimpleBrick{
 	
 	
+	protected MainForm form;
+	
 	@Override
 	public void begin() {
-		// TODO Auto-generated method stub
-		System.out.println("Hello");
-		
-		
+		// TODO Auto-generated method stub		
+		form = new MainForm();
+//		form.setVisible(true);
 	}
 	
 	@Override

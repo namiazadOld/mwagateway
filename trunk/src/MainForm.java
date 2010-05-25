@@ -20,13 +20,14 @@ public class MainForm extends javax.swing.JPanel {
 	private static final long serialVersionUID = 1L;
 	/** Creates new form software */
     public MainForm() {
+    	
         initComponents();
         QueryPanel.setVisible(false);
         ConfigurationPanel.setVisible(false);
         ChangeButtonPanel.setVisible(false);
-        ChanegedPanel.setVisible(false);
-
-
+        ChanegedPanel.setVisible(false);    
+        
+        setVisible(true);
     }
 
     /** This method is called from within the constructor to
