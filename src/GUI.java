@@ -9,9 +9,11 @@ public class GUI extends AbstractMyxSimpleBrick{
 	
 	@Override
 	public void begin() {
+
 		// TODO Auto-generated method stub		
 		form = new MainForm();
 //		form.setVisible(true);
+
 	}
 	
 	@Override

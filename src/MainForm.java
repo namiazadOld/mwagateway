@@ -4,30 +4,27 @@
  */
 
 /*
- * software.java
+ * MainForm.java
  *
- * Created on May 24, 2010, 11:59:15 PM
+ * Created on May 25, 2010, 2:06:51 PM
  */
+
+
+
 /**
  *
  * @author golnoosh
  */
-public class MainForm extends javax.swing.JPanel {
+public class MainForm extends javax.swing.JFrame {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/** Creates new form software */
+    /** Creates new form MainForm */
     public MainForm() {
-    	
         initComponents();
+        MainPanel.setVisible(true);
         QueryPanel.setVisible(false);
-        ConfigurationPanel.setVisible(false);
         ChangeButtonPanel.setVisible(false);
-        ChanegedPanel.setVisible(false);    
+        ChanegedPanel.setVisible(false);
         
-        setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -39,10 +36,6 @@ public class MainForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        menuBar1 = new java.awt.MenuBar();
-        menu1 = new java.awt.Menu();
-        menu2 = new java.awt.Menu();
-        popupMenu1 = new java.awt.PopupMenu();
         MainPanel = new javax.swing.JPanel();
         ConfigurationPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,13 +68,7 @@ public class MainForm extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         PhotoLabel = new javax.swing.JLabel();
 
-        menu1.setLabel("File");
-        menuBar1.add(menu1);
-
-        menu2.setLabel("Edit");
-        menuBar1.add(menu2);
-
-        popupMenu1.setLabel("popupMenu1");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         MainPanel.setBackground(new java.awt.Color(0, 102, 204));
         MainPanel.setBorder(new javax.swing.border.MatteBorder(null));
@@ -116,7 +103,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(TimeIntervalTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(VariableTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DeviceNameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         ChanegedPanelLayout.setVerticalGroup(
             ChanegedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,17 +144,18 @@ public class MainForm extends javax.swing.JPanel {
         ChangeButtonPanel.setLayout(ChangeButtonPanelLayout);
         ChangeButtonPanelLayout.setHorizontalGroup(
             ChangeButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ChangeButtonPanelLayout.createSequentialGroup()
+            .addGroup(ChangeButtonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(ChangeConfigurationButton))
+                .addGap(18, 18, 18)
+                .addComponent(ChangeConfigurationButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ChangeButtonPanelLayout.setVerticalGroup(
             ChangeButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ChangeButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(ChangeConfigurationButton)
-                .addComponent(BackButton))
+                .addComponent(BackButton)
+                .addComponent(ChangeConfigurationButton))
         );
 
         MainConfigurationPanel.setBackground(new java.awt.Color(153, 153, 255));
@@ -185,21 +173,20 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(MainConfigurationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MainConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LocationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                    .addComponent(TimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                    .addComponent(DeviceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
+                    .addComponent(LocationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                    .addComponent(TimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                    .addComponent(DeviceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
                 .addContainerGap())
         );
         MainConfigurationPanelLayout.setVerticalGroup(
             MainConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainConfigurationPanelLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DeviceLabel)
                 .addGap(18, 18, 18)
                 .addComponent(LocationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TimeLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TimeLabel))
         );
 
         QueryButton.setText("Query");
@@ -221,52 +208,52 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MainConfigurationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ChanegedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ConfigurationPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel7)
+                .addComponent(ChanegedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ChangeButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(QueryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ChangeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
-                .addGap(35, 35, 35))
+                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(QueryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ChangeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))))
             .addGroup(ConfigurationPanelLayout.createSequentialGroup()
                 .addGap(255, 255, 255)
-                .addComponent(jLabel8)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addComponent(jLabel8))
         );
         ConfigurationPanelLayout.setVerticalGroup(
             ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConfigurationPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(ConfigurationPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConfigurationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(ConfigurationPanelLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3))
-                            .addComponent(MainConfigurationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChanegedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
-                        .addComponent(QueryButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ChangeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(ChangeButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel3))
+                                    .addGroup(ConfigurationPanelLayout.createSequentialGroup()
+                                        .addComponent(QueryButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ChangeButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ChangeButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(5, 5, 5))
+                            .addComponent(ChanegedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
+                    .addComponent(MainConfigurationPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         QueryPanel.setBackground(new java.awt.Color(153, 153, 255));
@@ -289,7 +276,7 @@ public class MainForm extends javax.swing.JPanel {
         ResultPanel.setLayout(ResultPanelLayout);
         ResultPanelLayout.setHorizontalGroup(
             ResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 585, Short.MAX_VALUE)
         );
         ResultPanelLayout.setVerticalGroup(
             ResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,10 +292,13 @@ public class MainForm extends javax.swing.JPanel {
         QueryPanel.setLayout(QueryPanelLayout);
         QueryPanelLayout.setHorizontalGroup(
             QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(QueryPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QueryPanelLayout.createSequentialGroup()
+                        .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPanelLayout.createSequentialGroup()
                         .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QueryPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -326,9 +316,8 @@ public class MainForm extends javax.swing.JPanel {
                                 .addComponent(jLabel9))
                             .addGroup(QueryPanelLayout.createSequentialGroup()
                                 .addGap(85, 85, 85)
-                                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(ResultPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(229, 229, 229))))
         );
         QueryPanelLayout.setVerticalGroup(
             QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,9 +338,9 @@ public class MainForm extends javax.swing.JPanel {
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(SearchButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18));
@@ -366,69 +355,63 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(304, 304, 304)
                         .addComponent(PhotoLabel))
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ConfigurationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(184, 184, 184)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(QueryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(QueryPanel, javax.swing.GroupLayout.Alignment.LEADING, 0, 615, Short.MAX_VALUE)
+                            .addComponent(ConfigurationPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(PhotoLabel)
                 .addGap(29, 29, 29)
-                .addComponent(ConfigurationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConfigurationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(QueryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(423, Short.MAX_VALUE))
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        pack();
     }// </editor-fold>
 
     private void ChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-       ChangeButton.setVisible(false);
-       QueryButton.setVisible(false);
-       ChanegedPanel.setVisible(true);
-       MainConfigurationPanel.setVisible(false);
-
+        ChangeButton.setVisible(false);
+        QueryButton.setVisible(false);
+        ChanegedPanel.setVisible(true);
+        MainConfigurationPanel.setVisible(false);
+        ChangeButtonPanel.setVisible(true);
     }
+
+    private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        ChangeButton.setVisible(false);
+        ChanegedPanel.setVisible(false);
+        MainConfigurationPanel.setVisible(true);
+}
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {
         ChangeButton.setVisible(true);
         QueryButton.setVisible(true);
-        ChanegedPanel.setVisible(false);
-        MainConfigurationPanel.setVisible(true);
-
-    }
-
-    private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {
-       ChangeButton.setVisible(false);
         ChanegedPanel.setVisible(false);
         MainConfigurationPanel.setVisible(true);
     }
@@ -437,6 +420,16 @@ public class MainForm extends javax.swing.JPanel {
         QueryPanel.setVisible(true);
 }
 
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainForm().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton BackButton;
@@ -470,10 +463,6 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private java.awt.Menu menu1;
-    private java.awt.Menu menu2;
-    private java.awt.MenuBar menuBar1;
-    private java.awt.PopupMenu popupMenu1;
     // End of variables declaration
 
 }
