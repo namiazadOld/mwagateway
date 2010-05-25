@@ -33,6 +33,11 @@
     </types:archTypes>
     <types:archStructure types:id="archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="types:ArchStructure">
         <types:description xsi:type="instance:Description">Main</types:description>
+        <types:component types:id="componentffffff91-cf6f830f-d39b8fad-25cd0004" xsi:type="types:Component">
+            <types:description xsi:type="instance:Description">GUI</types:description>
+            <types:type xlink:href="#componentTypeffa1126d-cec5055e-4eb10c57-cdb50255" xsi:type="instance:XMLLink" xlink:type="simple"/>
+        </types:component>
+        
         
         
         
@@ -59,17 +64,30 @@
                 </hints3:property>
             </hints3:hintedElement>
             <hints3:hintedElement xsi:type="hints3:HintedElement">
-                <hints3:target xlink:href="#archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="instance:XMLLink" xlink:type="simple"/>
-            </hints3:hintedElement>
-            <hints3:hintedElement xsi:type="hints3:HintedElement">
-                <hints3:target xlink:href="#componentTypeffa1126d-ced88705-c2a1ea04-cdb5039f" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                <hints3:target xlink:href="#componentTypeffa1126d-ced88705-c2a1ea04-cdb5039f" xlink:type="simple" xsi:type="instance:XMLLink"/>
                 <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
-                    <hints3:value hints3:data="10030,10030,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
+                    <hints3:value hints3:data="10030,10030,100,100" hints3:type="org.eclipse.swt.graphics.Rectangle" xsi:type="hints3:PropertyValue"/>
                 </hints3:property>
                 <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
-                    <hints3:value hints3:data="104,113,191" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
+                    <hints3:value hints3:data="104,113,191" hints3:type="org.eclipse.swt.graphics.RGB" xsi:type="hints3:PropertyValue"/>
                 </hints3:property>
             </hints3:hintedElement>
+            <hints3:hintedElement xsi:type="hints3:HintedElement">
+                <hints3:target xlink:href="#archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#componentffffff91-cf6f830f-d39b8fad-25cd0004" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                    <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10350,5650,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="197,203,255" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
+                    </hints3:property>
+                </hints3:hintedElement>
+            </hints3:hintedElement>
+            
+            
+            
+            
             
             
             
