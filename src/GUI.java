@@ -11,7 +11,11 @@ public class GUI extends AbstractMyxSimpleBrick{
 	public void begin() {
 
 		// TODO Auto-generated method stub		
-		form = new MainForm();
+	    java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainForm().setVisible(true);
+            }
+        });
 //		form.setVisible(true);
 
 	}
