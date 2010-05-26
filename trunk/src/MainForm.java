@@ -43,8 +43,9 @@ public class MainForm extends javax.swing.JFrame {
         LocationLabel = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        ImageIcon WeatherIcon = new ImageIcon("waiting.gif");
         jLabel11 = new javax.swing.JLabel();
-        WeatherLabel = new javax.swing.JLabel();
+        WeatherLabel = new javax.swing.JLabel(WeatherIcon);
         QueryPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         QueryLocationTextField = new javax.swing.JTextField();
@@ -180,7 +181,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel7.setText("secs");
 
-        jLabel11.setText("Current Weather:");
+       jLabel11.setText("Current Weather:");
 
         WeatherLabel.setText("Weather");
 
@@ -443,6 +444,7 @@ public class MainForm extends javax.swing.JFrame {
     
     public void UpdateTemperature(double value)
     {
+    	WeatherLabel.setIcon(null);
     	WeatherLabel.setText(Double.toString(value));
     	System.out.println(value);
     	repaint();
