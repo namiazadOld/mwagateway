@@ -1,5 +1,5 @@
-import java.io.Console;
 import java.util.Random;
+
 
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
 import edu.uci.isr.myx.fw.IMyxName;
