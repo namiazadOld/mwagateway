@@ -183,7 +183,7 @@ public class MainForm extends javax.swing.JFrame {
 
        jLabel11.setText("Current Weather:");
 
-        WeatherLabel.setText("Weather");
+        WeatherLabel.setText("");
 
         javax.swing.GroupLayout ConfigurationPanelLayout = new javax.swing.GroupLayout(ConfigurationPanel);
         ConfigurationPanel.setLayout(ConfigurationPanelLayout);
