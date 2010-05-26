@@ -439,7 +439,14 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }                                            
+    }           
+    
+    public void UpdateTemperature(double value)
+    {
+    	WeatherLabel.setText(Double.toString(value));
+    	System.out.println(value);
+    	repaint();
+    }
 
     /**
     * @param args the command line arguments
