@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.Random;
 
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
@@ -14,6 +15,11 @@ public class SensorDriver extends AbstractMyxSimpleBrick implements ISensorAPI{
 	
 	private int lastTemperature = NULLTEMPERATURE;
 	private Random temperatureGenerator;
+	
+	@Override
+	public void begin() {
+		// TODO Auto-generated method stub
+	}
 	
 	public SensorDriver()
 	{
@@ -42,9 +48,11 @@ public class SensorDriver extends AbstractMyxSimpleBrick implements ISensorAPI{
 		double coin = temperatureGenerator.nextDouble();
 		
 		if (coin > 0.3 && coin < 0.6)
-			lastTemperature--;
+			if (lastTemperature > (0 - RANGE))
+				lastTemperature--;
 		else if (coin >= 0.6)
-			lastTemperature++;
+			if (lastTemperature < RANGE)
+				lastTemperature++;
 		
 		return lastTemperature;
 	}

@@ -1,9 +1,11 @@
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
 import edu.uci.isr.myx.fw.IMyxName;
+import edu.uci.isr.myx.fw.MyxUtils;
 
 
-public class GUI extends AbstractMyxSimpleBrick{
+public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchronizer{
 	
+	public static final IMyxName INTERFACE_NAME_IN_TEMPERATURESYNCHRONIZER= MyxUtils.createName("TemperatureSynchronizer");
 	
 	protected MainForm form;
 	
@@ -20,9 +22,17 @@ public class GUI extends AbstractMyxSimpleBrick{
 	}
 	
 	@Override
-	public Object getServiceObject(IMyxName arg0) {
+	public Object getServiceObject(IMyxName name) {
 		// TODO Auto-generated method stub
+		if (name.equals(INTERFACE_NAME_IN_TEMPERATURESYNCHRONIZER))
+			return this;
 		return null;
+	}
+
+	@Override
+	public void Synch(Temperature temperature) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
