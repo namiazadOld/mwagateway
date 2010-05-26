@@ -7,7 +7,6 @@ public class ClientCore extends AbstractMyxSimpleBrick{
 	@Override
 	public void begin() {
 		// TODO Auto-generated method stub
-		System.out.println("ClientCore");
 	}
 	
 	@Override
