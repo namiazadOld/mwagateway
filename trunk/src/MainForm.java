@@ -9,6 +9,8 @@ public class MainForm extends javax.swing.JFrame {
         QueryPanel.setVisible(true);
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
+        QueryLocationTextField.setText(null);
+        QueryTimeTextField.setText(null);
         
     }
 
@@ -29,7 +31,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ChanegedPanel = new javax.swing.JPanel();
         DeviceNameTextField = new javax.swing.JTextField();
-        VariableTextField = new javax.swing.JTextField();
+        LocationTextField = new javax.swing.JTextField();
         TimeIntervalTextField = new javax.swing.JTextField();
         ChangeButton = new javax.swing.JButton();
         ChangeButtonPanel = new javax.swing.JPanel();
@@ -76,7 +78,7 @@ public class MainForm extends javax.swing.JFrame {
 
         DeviceNameTextField.setText("device");
 
-        VariableTextField.setText("location");
+        LocationTextField.setText("location");
 
         TimeIntervalTextField.setText("time");
 
@@ -88,7 +90,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ChanegedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DeviceNameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(VariableTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(LocationTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                     .addComponent(TimeIntervalTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -97,7 +99,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(ChanegedPanelLayout.createSequentialGroup()
                 .addComponent(DeviceNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(VariableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TimeIntervalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -390,6 +392,10 @@ public class MainForm extends javax.swing.JFrame {
         ChanegedPanel.setVisible(true);
         MainConfigurationPanel.setVisible(false);
         ChangeButtonPanel.setVisible(true);
+        DeviceNameTextField.setText(DeviceLabel.getText());
+        LocationTextField.setText(LocationLabel.getText());
+        TimeIntervalTextField.setText(TimeLabel.getText());
+      
     }
 
     private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,6 +403,9 @@ public class MainForm extends javax.swing.JFrame {
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
         MainConfigurationPanel.setVisible(true);
+        DeviceLabel.setText(DeviceNameTextField.getText());
+        LocationLabel.setText(LocationTextField.getText());
+        TimeLabel.setText(TimeIntervalTextField.getText());
 }
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,7 +448,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField TimeIntervalTextField;
     private javax.swing.JLabel TimeLabel;
-    private javax.swing.JTextField VariableTextField;
+    private javax.swing.JTextField LocationTextField;
     private javax.swing.JLabel WeatherLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
