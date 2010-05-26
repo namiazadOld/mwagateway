@@ -1,5 +1,6 @@
 import javax.swing.ImageIcon;
 
+
 public class MainForm extends javax.swing.JFrame {
 
     /** Creates new form MainForm */
@@ -9,9 +10,9 @@ public class MainForm extends javax.swing.JFrame {
         QueryPanel.setVisible(true);
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
-        QueryLocationTextField.setText(null);
+           QueryLocationTextField.setText(null);
         QueryTimeTextField.setText(null);
-        
+        QueryRadiusTextField.setText(null);
     }
 
     /** This method is called from within the constructor to
@@ -53,6 +54,8 @@ public class MainForm extends javax.swing.JFrame {
         ResultPanel = new javax.swing.JPanel();
         SearchButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        QueryRadiusTextField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         ImageIcon myIcon = new ImageIcon("MWA.png");
         PhotoLabel = new javax.swing.JLabel(myIcon);
@@ -177,7 +180,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel7.setText("secs");
 
-        jLabel11.setText("Weather:");
+        jLabel11.setText("Current Weather:");
 
         WeatherLabel.setText("Weather");
 
@@ -187,8 +190,7 @@ public class MainForm extends javax.swing.JFrame {
             ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConfigurationPanelLayout.createSequentialGroup()
                 .addGap(240, 240, 240)
-                .addComponent(jLabel8)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addComponent(jLabel8))
             .addGroup(ConfigurationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,11 +270,11 @@ public class MainForm extends javax.swing.JFrame {
         ResultPanel.setLayout(ResultPanelLayout);
         ResultPanelLayout.setHorizontalGroup(
             ResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
         ResultPanelLayout.setVerticalGroup(
             ResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 133, Short.MAX_VALUE)
+            .addGap(0, 169, Short.MAX_VALUE)
         );
 
         SearchButton.setText("Serach");
@@ -285,28 +287,42 @@ public class MainForm extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel9.setText("Query");
 
+        jLabel12.setText("Radius:");
+
+        QueryRadiusTextField.setText("radius");
+
         javax.swing.GroupLayout QueryPanelLayout = new javax.swing.GroupLayout(QueryPanel);
         QueryPanel.setLayout(QueryPanelLayout);
         QueryPanelLayout.setHorizontalGroup(
             QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QueryPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(QueryLocationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(QueryTimeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(93, 93, 93)
-                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPanelLayout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
+                    .addGroup(QueryPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addGroup(QueryPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                                .addGap(10, 10, 10))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(QueryLocationTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(QueryRadiusTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(QueryTimeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(QueryPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6)
+                                .addGap(59, 59, 59))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(114, 114, 114))))
+                    .addGroup(QueryPanelLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19))
             .addGroup(QueryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ResultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -317,24 +333,27 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(QueryPanelLayout.createSequentialGroup()
                 .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QueryPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(QueryLocationTextField)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(QueryTimeTextField)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
+                        .addGap(33, 33, 33)
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                            .addComponent(QueryLocationTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                            .addComponent(QueryRadiusTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(QueryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(QueryTimeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)))
                     .addGroup(QueryPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9)
-                        .addGap(33, 33, 33)
-                        .addComponent(SearchButton)
-                        .addGap(16, 16, 16)))
-                .addGap(5, 5, 5)
-                .addComponent(ResultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                        .addGap(18, 18, 18)
+                        .addComponent(SearchButton)))
+                .addGap(11, 11, 11)
+                .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18));
@@ -344,30 +363,30 @@ public class MainForm extends javax.swing.JFrame {
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                .addGap(163, 163, 163))
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGap(283, 283, 283)
-                .addComponent(PhotoLabel)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addComponent(PhotoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(338, 338, 338))
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                .addGap(192, 192, 192))
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ConfigurationPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(QueryPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(QueryPanel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ConfigurationPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PhotoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addComponent(PhotoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                 .addGap(3, 3, 3)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConfigurationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ConfigurationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(QueryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -377,7 +396,7 @@ public class MainForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,41 +406,40 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void ChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        ChangeButton.setVisible(false);
+    private void ChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+     ChangeButton.setVisible(false);
         ChanegedPanel.setVisible(true);
         MainConfigurationPanel.setVisible(false);
         ChangeButtonPanel.setVisible(true);
         DeviceNameTextField.setText(DeviceLabel.getText());
         LocationTextField.setText(LocationLabel.getText());
         TimeIntervalTextField.setText(TimeLabel.getText());
-      
-    }
+    }                                            
 
-    private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        ChangeButton.setVisible(true);
+    private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                          
+      ChangeButton.setVisible(true);
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
         MainConfigurationPanel.setVisible(true);
         DeviceLabel.setText(DeviceNameTextField.getText());
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
-}
+}                                                         
 
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         ChangeButton.setVisible(true);
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
         MainConfigurationPanel.setVisible(true);
-    }
+    }                                          
 
-    private void QueryLocationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    private void QueryLocationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         // TODO add your handling code here:
-    }
+    }                                                      
 
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    }
+    }                                            
 
     /**
     * @param args the command line arguments
@@ -438,21 +456,23 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel DeviceLabel;
     private javax.swing.JTextField DeviceNameTextField;
     private javax.swing.JLabel LocationLabel;
+    private javax.swing.JTextField LocationTextField;
     private javax.swing.JPanel MainConfigurationPanel;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel PhotoLabel;
     private javax.swing.JTextField QueryLocationTextField;
     private javax.swing.JPanel QueryPanel;
+    private javax.swing.JTextField QueryRadiusTextField;
     private javax.swing.JTextField QueryTimeTextField;
     private javax.swing.JPanel ResultPanel;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField TimeIntervalTextField;
     private javax.swing.JLabel TimeLabel;
-    private javax.swing.JTextField LocationTextField;
     private javax.swing.JLabel WeatherLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
