@@ -8,7 +8,6 @@ import edu.uci.isr.myx.fw.MyxUtils;
 
 public class ClientCore extends AbstractMyxSimpleBrick{
 	
-	
 	class TemperatureManager extends TimerTask
 	{
 		public void run()
@@ -32,7 +31,7 @@ public class ClientCore extends AbstractMyxSimpleBrick{
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
 		temperatureSynchronizer = (ITemperatureSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER);
 		timer = new Timer();
-		timer.scheduleAtFixedRate(new TemperatureManager(), 1000, 5000);
+		timer.scheduleAtFixedRate(new TemperatureManager(), 5000, 5000);
 	}
 	
 	@Override
