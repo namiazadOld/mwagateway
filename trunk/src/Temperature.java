@@ -10,11 +10,11 @@ public class Temperature {
 		this.humidity = humidity;
 	}
 	
-	public double getValue() {
+	public Double getValue() {
 		return value;
 	}
 	
-	public double getHumidity() {
+	public Double getHumidity() {
 		return humidity;
 	}
 }

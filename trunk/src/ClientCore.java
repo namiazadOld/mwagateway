@@ -32,7 +32,7 @@ public class ClientCore extends AbstractMyxSimpleBrick{
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
 		temperatureSynchronizer = (ITemperatureSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER);
 		timer = new Timer();
-		timer.scheduleAtFixedRate(new TemperatureManager(), 0, 5000);
+		timer.scheduleAtFixedRate(new TemperatureManager(), 1000, 5000);
 	}
 	
 	@Override
