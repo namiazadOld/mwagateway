@@ -15,7 +15,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		public void run()
 		{
 			Temperature temperature = new Temperature(sensorAPI.CurrentTemperatureInC(), 0);
-			temperatureSynchronizer.Synch(temperature);
+			temperatureSynchronizer.TemperatureUpdated(temperature);
 		}
 	}
 	
