@@ -1,5 +1,5 @@
 
 public interface ITemperatureSynchronizer {
 	
-	public void Synch(Temperature temperature);
+	public void TemperatureUpdated(Temperature temperature);
 }

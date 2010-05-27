@@ -6,14 +6,14 @@ import edu.uci.isr.myx.fw.IMyxName;
 import edu.uci.isr.myx.fw.MyxUtils;
 
 
-public class ClientCore extends AbstractMyxSimpleBrick{
+public class ClientCore extends AbstractMyxSimpleBrick implements ITemperatureSynchronizer{
 	
 	class TemperatureManager extends TimerTask
 	{
 		public void run()
 		{
 			Temperature temperature = new Temperature(sensorAPI.CurrentTemperatureInC(), 0);
-			temperatureSynchronizer.Synch(temperature);
+			temperatureSynchronizer.TemperatureUpdated(temperature);
 		}
 	}
 	
@@ -45,4 +45,9 @@ public class ClientCore extends AbstractMyxSimpleBrick{
 		
 	}
 
+	@Override
+	public void TemperatureUpdated(Temperature temperature) {
+		// TODO Auto-generated method stub
+		
+	}
 }
