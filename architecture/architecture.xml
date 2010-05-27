@@ -97,9 +97,15 @@
             </implementation:implementation>
             
         </types:connectorType>
+<<<<<<< .mine
+        <types:connectorType types:id="connectorTypeffffbb1d-d9579d1a-9e89116f-e8450199" xsi:type="implementation:VariantConnectorTypeImpl">
+            <types:description xsi:type="instance:Description">GUI EventPump Connector</types:description>
+            <types:signature xsi:type="implementation:SignatureImpl">
+=======
         <types:connectorType types:id="connectorTypeffa1126d-d53ddfaa-28125f0f-cdb5186e" xsi:type="implementation:VariantConnectorTypeImpl">
             <types:description xsi:type="instance:Description">GUI Notification EventPump</types:description>
             <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280053" xsi:type="implementation:SignatureImpl">
+>>>>>>> .r33
                 <types:description xsi:type="instance:Description">in</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
                 <types:type xlink:href="#interfaceTypeffa1126d-d541303c-3cc8478c-cdb51945" xlink:type="simple" xsi:type="instance:XMLLink"/>
@@ -107,7 +113,7 @@
                     <lookupimplementation:name xsi:type="lookupimplementation:LookupName">in</lookupimplementation:name>
                 </implementation:implementation>
             </types:signature>
-            <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280054" xsi:type="implementation:SignatureImpl">
+            <types:signature xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">out</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
                 <types:type xlink:href="#interfaceTypeffa1126d-d541303c-3cc8478c-cdb51945" xlink:type="simple" xsi:type="instance:XMLLink"/>
@@ -121,9 +127,15 @@
                 </javaimplementation:mainClass>
             </implementation:implementation>
         </types:connectorType>
+<<<<<<< .mine
+        <types:connectorType types:id="connectorTypeffffbb1d-d963edde-af33fb28-e84502da" xsi:type="types:ConnectorType">
+            <types:description xsi:type="instance:Description">GUI Request</types:description>
+        </types:connectorType>
+=======
         <types:connectorType types:id="connectorTypeffffbb08-d963d76f-3964c34e-4c6c0145" xsi:type="types:ConnectorType">
             <types:description xsi:type="instance:Description">GUI Request EventPump</types:description>
         </types:connectorType>
+>>>>>>> .r33
         <types:interfaceType types:id="interfaceTypeffa1126d-cf918ee1-19b19e4a-cdb510a4" xsi:type="implementation:InterfaceTypeImpl">
             <types:description xsi:type="instance:Description">SensorAPI</types:description>
             <implementation:implementation xsi:type="javaimplementation:JavaImplementation">
@@ -157,6 +169,24 @@
         
         
         
+<<<<<<< .mine
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+=======
         
         
         
@@ -175,6 +205,7 @@
         
         
         
+>>>>>>> .r33
     </types:archTypes>
     <types:archStructure types:id="archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="types:ArchStructure">
         <types:description xsi:type="instance:Description">Main</types:description>
@@ -221,11 +252,15 @@
                 <types:type xlink:href="#interfaceTypeffa1126d-d541303c-3cc8478c-cdb51945" xlink:type="simple" xsi:type="instance:XMLLink"/>
                 <types:signature xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280055" xlink:type="simple" xsi:type="instance:XMLLink"/>
             </types:interface>
+<<<<<<< .mine
+            <types:type xlink:href="#componentTypeffa1126d-cec5055e-4eb10c57-cdb50255" xlink:type="simple" xsi:type="instance:XMLLink"/>
+=======
             
             <types:type xlink:href="#componentTypeffa1126d-cec5055e-4eb10c57-cdb50255" xlink:type="simple" xsi:type="instance:XMLLink"/>
             
             
             
+>>>>>>> .r33
         </types:component>
         <types:connector types:id="connectorffa1126d-d4f36987-d225d02a-cdb515c0" xsi:type="types:Connector">
             <types:description xsi:type="instance:Description">Sensor Proxy</types:description>
@@ -244,7 +279,11 @@
             <types:type xlink:href="#connectorTypeffa1126d-cedc98e3-c8ff658f-cdb5044e" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:connector>
         <types:connector types:id="connectorffa1126d-d5742ad5-ff877afd-cdb51c62" xsi:type="types:Connector">
+<<<<<<< .mine
+            <types:description xsi:type="instance:Description">GUI EventPump</types:description>
+=======
             <types:description xsi:type="instance:Description">GUI Notification</types:description>
+>>>>>>> .r33
             <types:interface types:id="interfaceffa1126d-d5742ad5-9f62107c-cdb51c63" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">in</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
@@ -257,7 +296,11 @@
                 <types:type xlink:href="#interfaceTypeffa1126d-d541303c-3cc8478c-cdb51945" xlink:type="simple" xsi:type="instance:XMLLink"/>
                 <types:signature xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280054" xlink:type="simple" xsi:type="instance:XMLLink"/>
             </types:interface>
+<<<<<<< .mine
+            <types:type xlink:href="#connectorTypeffffbb1d-d9579d1a-9e89116f-e8450199" xlink:type="simple" xsi:type="instance:XMLLink"/>
+=======
             <types:type xlink:href="#connectorTypeffa1126d-d53ddfaa-28125f0f-cdb5186e" xlink:type="simple" xsi:type="instance:XMLLink"/>
+>>>>>>> .r33
         </types:connector>
         
         <types:link types:id="linkffa1126d-d505484c-c5f40ca8-cdb51767" xsi:type="types:Link">
@@ -335,6 +378,47 @@
     <hints3:renderingHints3 xsi:type="hints3:RenderingHints3">
         <hints3:hintedElement hints3:maintainer="edu.uci.isr.archstudio4.comp.archipelago" hints3:version="4.0.0" hints3:type="XML" xsi:type="hints3:HintBundle">
             <hints3:hintedElement xsi:type="hints3:HintedElement">
+<<<<<<< .mine
+                <hints3:target xlink:href="#connectorTypeffa1126d-d53ddfaa-28125f0f-cdb5186e" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
+                    <hints3:value hints3:data="10030,10030,100,100" hints3:type="org.eclipse.swt.graphics.Rectangle" xsi:type="hints3:PropertyValue"/>
+                </hints3:property>
+                <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
+                    <hints3:value hints3:data="104,113,191" hints3:type="org.eclipse.swt.graphics.RGB" xsi:type="hints3:PropertyValue"/>
+                </hints3:property>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280053" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="false" hints3:type="java.lang.Boolean" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="0" hints3:type="java.lang.Integer" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                </hints3:hintedElement>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280054" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="false" hints3:type="java.lang.Boolean" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="0" hints3:type="java.lang.Integer" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                </hints3:hintedElement>
+            </hints3:hintedElement>
+            <hints3:hintedElement xsi:type="hints3:HintedElement">
+=======
                 <hints3:target xlink:href="#connectorTypeffa1126d-d5b900b8-24729296-cdb51f80" xlink:type="simple" xsi:type="instance:XMLLink"/>
                 <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
                     <hints3:value hints3:data="10030,10030,100,100" hints3:type="org.eclipse.swt.graphics.Rectangle" xsi:type="hints3:PropertyValue"/>
@@ -344,6 +428,7 @@
                 </hints3:property>
             </hints3:hintedElement>
             <hints3:hintedElement xsi:type="hints3:HintedElement">
+>>>>>>> .r33
                 <hints3:target xlink:href="#archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="instance:XMLLink" xlink:type="simple"/>
                 <hints3:hintedElement xsi:type="hints3:HintedElement">
                     <hints3:target xlink:href="#componentffa1126d-d4f4e2aa-13294fb3-cdb51659" xsi:type="instance:XMLLink" xlink:type="simple"/>
@@ -359,10 +444,14 @@
                             <hints3:value hints3:data="10500,10375" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+<<<<<<< .mine
+                            <hints3:value hints3:data="10450,10300" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+=======
                             <hints3:value hints3:data="10500,10375" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+>>>>>>> .r33
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -374,10 +463,14 @@
                             <hints3:value hints3:data="10450,10375" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+<<<<<<< .mine
+                            <hints3:value hints3:data="10225,10400" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+=======
                             <hints3:value hints3:data="10470,10355" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+>>>>>>> .r33
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -398,7 +491,7 @@
                             <hints3:value hints3:data="10697,10200" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10717,10180" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                            <hints3:value hints3:data="10725,10225" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
                             <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
@@ -422,10 +515,14 @@
                             <hints3:value hints3:data="10200,10200" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+<<<<<<< .mine
+                            <hints3:value hints3:data="10025,10225" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+=======
                             <hints3:value hints3:data="10200,10200" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+>>>>>>> .r33
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -446,10 +543,10 @@
                             <hints3:value hints3:data="10600,10300" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10600,10300" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                            <hints3:value hints3:data="10625,10325" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -461,10 +558,10 @@
                             <hints3:value hints3:data="10600,10250" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10600,10250" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                            <hints3:value hints3:data="10600,10225" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -485,10 +582,14 @@
                             <hints3:value hints3:data="10325,10300" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+<<<<<<< .mine
+                            <hints3:value hints3:data="10250,10350" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+=======
                             <hints3:value hints3:data="10325,10300" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+>>>>>>> .r33
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -500,10 +601,14 @@
                             <hints3:value hints3:data="10325,10250" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+<<<<<<< .mine
+                            <hints3:value hints3:data="10295,10180" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+=======
                             <hints3:value hints3:data="10325,10250" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+>>>>>>> .r33
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
                             <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
@@ -698,43 +803,13 @@
                 </hints3:hintedElement>
             </hints3:hintedElement>
             <hints3:hintedElement xsi:type="hints3:HintedElement">
-                <hints3:target xlink:href="#connectorTypeffa1126d-d53ddfaa-28125f0f-cdb5186e" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                <hints3:target xlink:href="#connectorTypeffffbb1d-d9579d1a-9e89116f-e8450199" xsi:type="instance:XMLLink" xlink:type="simple"/>
                 <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
                     <hints3:value hints3:data="10030,10030,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
                 </hints3:property>
                 <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
                     <hints3:value hints3:data="104,113,191" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
                 </hints3:property>
-                <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280053" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
-                    </hints3:property>
-                </hints3:hintedElement>
-                <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280054" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
-                    </hints3:property>
-                </hints3:hintedElement>
             </hints3:hintedElement>
             
             
@@ -764,6 +839,27 @@
             
             
             
+<<<<<<< .mine
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+=======
             
             
             
@@ -798,6 +894,7 @@
             
             
             
+>>>>>>> .r33
         </hints3:hintedElement>
     </hints3:renderingHints3>
 </instance:xArch>
