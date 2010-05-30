@@ -1,4 +1,7 @@
+import java.util.List;
+
 import javax.swing.ImageIcon;
+
 
 
 public class MainForm extends javax.swing.JFrame {
@@ -449,6 +452,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
+    	List<QueryResult> results = clientService.query(new QueryParameter("Delft", 12, 13));
+    	System.out.println(results.get(0).getDeviceName());
     }           
     
     public void UpdateTemperature(double value)
