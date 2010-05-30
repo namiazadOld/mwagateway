@@ -23,8 +23,11 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
             public void run() {
                 form = new MainForm();
                 form.setVisible(true);
+                form.setClientService(clientService);
             }
         });
+	    
+	    
 	}
 	
 	@Override
@@ -42,8 +45,4 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
 		// TODO Auto-generated method stub
 		form.UpdateTemperature(temperature.getValue());
 	}
-	
-	
-	
-
 }

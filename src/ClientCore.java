@@ -54,15 +54,11 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	@Override
 	public void ConfigurationSent(Configuration configuration){
 		// TODO Auto-generated method stub
+		System.out.println("Start");	
+		double i = 100000000000.0;
 		
-		
-			
-		System.out.println("configuration");	
-		
-		
-		
-	
+		while (i > 0)
+			i--;
+		System.out.println("End");
 	}
-	
-	
 }
