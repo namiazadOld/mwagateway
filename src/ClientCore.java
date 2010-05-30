@@ -156,7 +156,6 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	@Override
 	public void query(QueryParameter parameter) {
 		// TODO Auto-generated method stub
-		System.out.println("query");
 		gatewayService.query(parameter);
 	}
 
@@ -164,7 +163,8 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public QueryResult Search(QueryParameter parameter) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Search call service on client core");
+		System.out.println(configuration.getDeviceName());
+		
 		if (parameter.getLocation().equals(configuration.getLocation()))
 			return new QueryResult(sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName());
 		return null;

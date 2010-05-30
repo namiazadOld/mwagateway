@@ -1,4 +1,3 @@
-import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -7,6 +6,10 @@ import javax.swing.ImageIcon;
 public class MainForm extends javax.swing.JFrame {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private IClientService clientService;
 	
 	public void setClientService(IClientService clientService) {
@@ -452,14 +455,16 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    	clientService.query(new QueryParameter("Delft", 12, 13));
+    	clientService.query(new QueryParameter(DeviceLabel.getText(),
+    			QueryLocationTextField.getText(),
+    			Double.parseDouble(QueryRadiusTextField.getText()),
+    			Double.parseDouble(QueryTimeTextField.getText())));
     }           
     
     public void UpdateTemperature(double value)
     {
     	WeatherLabel.setIcon(null);
     	WeatherLabel.setText(Double.toString(value));
-    	System.out.println(value);
     	repaint();
     }
     
