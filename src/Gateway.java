@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
@@ -10,9 +11,18 @@ public class Gateway extends AbstractMyxSimpleBrick implements IGatewayService{
 	public static final IMyxName INTERFACE_NAME_IN_GATEWAYSERVICE= MyxUtils.createName("GatewayService");
 	
 	@Override
+	public void begin() {
+		// TODO Auto-generated method stub
+		System.out.println("Begin");
+	}
+	
+	@Override
 	public List<QueryResult> query(QueryParameter parameter) {
 		// TODO Auto-generated method stub
-		return null;
+		QueryResult result = new QueryResult(1, 4, 2, "NamiDevice");
+		List<QueryResult> results = new ArrayList<QueryResult>();
+		results.add(result);
+		return results;
 	}
 
 	@Override

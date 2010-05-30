@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,12 +50,13 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 			return sensorAPI;
 		else if (name.equals(INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER))
 			return temperatureSynchronizer;
+		else if (name.equals(INTERFACE_NAME_OUT_GATEWAYSERVICE))
+			return gatewayService;
 		else if (name.equals(INTERFACE_NAME_IN_CLIENTSERVICE))
 			return this;
 		return null;
 		
 	}
-
 	
 	@Override
 	public void ConfigurationSent(Configuration configuration){
@@ -84,5 +86,11 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public List<QueryResult> query(QueryParameter parameter) {
+		// TODO Auto-generated method stub
+		return gatewayService.query(parameter);
 	}
 }
