@@ -24,9 +24,11 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public static final IMyxName INTERFACE_NAME_OUT_SENSORAPI = MyxUtils.createName("SensorAPI");
 	public static final IMyxName INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER = MyxUtils.createName("TemperatureSynchronizer");
 	public static final IMyxName INTERFACE_NAME_IN_CLIENTSERVICE= MyxUtils.createName("ClientService");
+	public static final IMyxName INTERFACE_NAME_OUT_GATEWAYSERVICE= MyxUtils.createName("GatewayService");
 
 	private ISensorAPI sensorAPI;
 	private ITemperatureSynchronizer temperatureSynchronizer;
+	private IGatewayService gatewayService;
 	private Timer timer;
 	
 	@Override
@@ -35,6 +37,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
 		temperatureSynchronizer = (ITemperatureSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER);
+		gatewayService = (IGatewayService)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_GATEWAYSERVICE);
 		timer = new Timer();
 		timer.scheduleAtFixedRate(new TemperatureManager(), 5000, 5000);
 	}
@@ -56,6 +59,8 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	@Override
 	public void ConfigurationSent(Configuration configuration){
 		// TODO Auto-generated method stub
+//		System.out.println("Start");	
+//		double i = 1000000000.0;
 //		System.out.println("Start");	
 //		double i = 1000000000.0;
 //		
