@@ -12,7 +12,7 @@ import edu.uci.isr.myx.fw.IMyxName;
 import edu.uci.isr.myx.fw.MyxUtils;
 
 
-public class ClientCore extends AbstractMyxSimpleBrick implements IClientService{
+public class ClientCore extends AbstractMyxSimpleBrick implements IClientService, ISearchCallService{
 	
 	
 	class TemperatureManager extends TimerTask
@@ -28,6 +28,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public static final IMyxName INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER = MyxUtils.createName("TemperatureSynchronizer");
 	public static final IMyxName INTERFACE_NAME_IN_CLIENTSERVICE= MyxUtils.createName("ClientService");
 	public static final IMyxName INTERFACE_NAME_OUT_GATEWAYSERVICE= MyxUtils.createName("GatewayService");
+	public static final IMyxName INTERFACE_NAME_IN_SEARCHCALLSERVICE= MyxUtils.createName("SearchCallService");
 	
 	private static final String CONFIGURATIONFILENAME = "Configuration.txt";
 	private static final int INITIALDELAY = 5000;
@@ -105,6 +106,8 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 			return temperatureSynchronizer;
 		else if (name.equals(INTERFACE_NAME_IN_CLIENTSERVICE))
 			return this;
+		else if (name.equals(INTERFACE_NAME_IN_SEARCHCALLSERVICE))
+			return this;
 		else if (name.equals(INTERFACE_NAME_OUT_GATEWAYSERVICE))
 			return gatewayService;
 		return null;
@@ -148,5 +151,15 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		// TODO Auto-generated method stub
 		System.out.println("query");
 		gatewayService.query(parameter);
+	}
+
+	@Override
+	public QueryResult Search(QueryParameter parameter) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Search call service on client core");
+		if (parameter.getLocation().equals(configuration.getLocation()))
+			return new QueryResult(sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName());
+		return null;
 	}
 }

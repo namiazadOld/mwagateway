@@ -32,8 +32,6 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
                 form.setClientService(clientService);
             }
         });
-	    
-	    
 	}
 	
 	@Override
@@ -57,7 +55,6 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
 	@Override
 	public void ConfigurationUpdated(Configuration configuration) {
 		// TODO Auto-generated method stub
-		System.out.println(configuration.getDeviceName());
 		
 		while (form == null);
 		form.UpdateConfiguration(configuration);
