@@ -3,7 +3,7 @@
     <types:archTypes xsi:type="types:ArchTypes">
         <types:componentType types:id="componentTypeffa1126d-ceb1efa0-bd879064-cdb50252" xsi:type="implementation:VariantComponentTypeImpl">
             <types:description xsi:type="instance:Description">Gateway</types:description>
-            <types:signature xsi:type="implementation:SignatureImpl" types:id="componentTypeffa1126d-ceb1efa0-bd879064-cdb50272">
+            <types:signature types:id="signatureffa1126d-ceb1efa0-bd879064-cdb50272" xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">GatewayService</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
                 <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
@@ -46,7 +46,7 @@
                     <lookupimplementation:name xsi:type="lookupimplementation:LookupName">ClientService</lookupimplementation:name>
                 </implementation:implementation>
             </types:signature>
-            <types:signature xsi:type="implementation:SignatureImpl" types:id="signatureffa80164-2da4823f-c3750c0b-00280073">
+            <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280073" xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">GatewayService</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
                 <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
@@ -195,7 +195,7 @@
             </implementation:implementation>
             
         </types:connectorType>
-        <types:connectorType types:id="connectorTypeffa80168-e92076b4-ab6140c9-60210871" xsi:type="types:ConnectorType">
+        <types:connectorType types:id="connectorTypeffa80168-e92076b4-ab6140c9-60210871" xsi:type="implementation:VariantConnectorTypeImpl">
             <types:description xsi:type="instance:Description">Client Request EventPump</types:description>
             <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280074" xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">in</types:description>
@@ -213,6 +213,14 @@
                     <lookupimplementation:name xsi:type="lookupimplementation:LookupName">out</lookupimplementation:name>
                 </implementation:implementation>
             </types:signature>
+            <implementation:implementation xsi:type="javaimplementation:JavaImplementation">
+                <javaimplementation:mainClass xsi:type="javaimplementation:JavaClassFile">
+                    <javaimplementation:javaClassName xsi:type="javaimplementation:JavaClassName">edu.uci.isr.myx.conn.EventPumpConnector</javaimplementation:javaClassName>
+                </javaimplementation:mainClass>
+            </implementation:implementation>
+            
+            
+            
             
         </types:connectorType>
         <types:interfaceType types:id="interfaceTypeffa1126d-cf918ee1-19b19e4a-cdb510a4" xsi:type="implementation:InterfaceTypeImpl">
@@ -240,7 +248,7 @@
             </implementation:implementation>
             
         </types:interfaceType>
-        <types:interfaceType xsi:type="implementation:InterfaceTypeImpl" types:id="interfaceTypeffa80168-e91f7810-c4082b6a-60210833">
+        <types:interfaceType types:id="interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xsi:type="implementation:InterfaceTypeImpl">
             <types:description xsi:type="instance:Description">GatewayService</types:description>
             <implementation:implementation xsi:type="javaimplementation:JavaImplementation">
                 <javaimplementation:mainClass xsi:type="javaimplementation:JavaClassFile">
@@ -318,6 +326,10 @@
                 <types:description xsi:type="instance:Description">GatewayService</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
                 <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                <types:signature xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280073" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                
+                
+                
             </types:interface>
             <types:type xlink:href="#componentTypeffa1126d-ceb46090-108a6fbd-cdb50253" xlink:type="simple" xsi:type="instance:XMLLink"/>
             
@@ -381,12 +393,13 @@
             
             
         </types:component>
-        <types:component types:id="componentffa80168-e91f5006-eb83b3dd-6021080d" xsi:type="types:Component">
+        <types:component types:id="componentffa80168-e9653c5b-999dd02e-60210f32" xsi:type="types:Component">
             <types:description xsi:type="instance:Description">Gateway</types:description>
-            <types:interface types:id="interfaceffa80168-e91fb180-6b86f1aa-6021084d" xsi:type="types:Interface">
+            <types:interface types:id="interfaceffa80168-e9653c5b-d347e670-60210f33" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">GatewayService</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
                 <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                <types:signature xlink:href="#signatureffa1126d-ceb1efa0-bd879064-cdb50272" xlink:type="simple" xsi:type="instance:XMLLink"/>
             </types:interface>
             <types:type xlink:href="#componentTypeffa1126d-ceb1efa0-bd879064-cdb50252" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:component>
@@ -437,20 +450,6 @@
                 <types:signature xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280060" xlink:type="simple" xsi:type="instance:XMLLink"/>
             </types:interface>
             <types:type xlink:href="#connectorTypeffffbb08-d963d76f-3964c34e-4c6c0145" xlink:type="simple" xsi:type="instance:XMLLink"/>
-        </types:connector>
-        <types:connector types:id="connectorffa80168-e921b09b-a945dde8-60210872" xsi:type="types:Connector">
-            <types:description xsi:type="instance:Description">Client Request EventPump</types:description>
-            <types:interface types:id="interfaceffa80168-e922159f-1205d9c5-602108ce" xsi:type="types:Interface">
-                <types:description xsi:type="instance:Description">out</types:description>
-                <types:direction xsi:type="instance:Direction">out</types:direction>
-                <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:interface>
-            <types:interface types:id="interfaceffa80168-e922e1a9-994d7776-602108f9" xsi:type="types:Interface">
-                <types:description xsi:type="instance:Description">in</types:description>
-                <types:direction xsi:type="instance:Direction">in</types:direction>
-                <types:type xlink:href="#interfaceTypeffa80168-e91f7810-c4082b6a-60210833" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:interface>
-            <types:type xlink:href="#connectorTypeffa80168-e92076b4-ab6140c9-60210871" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:connector>
         <types:link types:id="linkffa1126d-d505484c-c5f40ca8-cdb51767" xsi:type="types:Link">
             <types:description xsi:type="instance:Description">[New Link]</types:description>
@@ -506,24 +505,23 @@
                 <instance:anchorOnInterface xlink:href="#interfaceffa80168-e1a82e83-ecc51891-6021017f" xlink:type="simple" xsi:type="instance:XMLLink"/>
             </types:point>
         </types:link>
-        <types:link types:id="linkffa80168-e92532dc-296eaa79-602109aa" xsi:type="types:Link">
-            <types:description xsi:type="instance:Description">[New Link]</types:description>
-            <types:point xsi:type="instance:Point">
-                <instance:anchorOnInterface xlink:href="#interfaceffa80168-e922e1a9-994d7776-602108f9" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:point>
-            <types:point xsi:type="instance:Point">
-                <instance:anchorOnInterface xlink:href="#interfaceffa80168-e923c998-9456a4be-60210937" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:point>
-        </types:link>
-        <types:link types:id="linkffa80168-e9255d57-f9cfc802-602109b8" xsi:type="types:Link">
-            <types:description xsi:type="instance:Description">[New Link]</types:description>
-            <types:point xsi:type="instance:Point">
-                <instance:anchorOnInterface xlink:href="#interfaceffa80168-e91fb180-6b86f1aa-6021084d" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:point>
-            <types:point xsi:type="instance:Point">
-                <instance:anchorOnInterface xlink:href="#interfaceffa80168-e922159f-1205d9c5-602108ce" xlink:type="simple" xsi:type="instance:XMLLink"/>
-            </types:point>
-        </types:link>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -613,6 +611,45 @@
                 <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
                     <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
                 </hints3:property>
+            </hints3:hintedElement>
+            <hints3:hintedElement xsi:type="hints3:HintedElement">
+                <hints3:target xlink:href="#connectorTypeffa80168-e92076b4-ab6140c9-60210871" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
+                    <hints3:value hints3:data="10030,10030,100,100" hints3:type="org.eclipse.swt.graphics.Rectangle" xsi:type="hints3:PropertyValue"/>
+                </hints3:property>
+                <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
+                    <hints3:value hints3:data="104,113,191" hints3:type="org.eclipse.swt.graphics.RGB" xsi:type="hints3:PropertyValue"/>
+                </hints3:property>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280074" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="false" hints3:type="java.lang.Boolean" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="0" hints3:type="java.lang.Integer" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                </hints3:hintedElement>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280075" xlink:type="simple" xsi:type="instance:XMLLink"/>
+                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" hints3:type="org.eclipse.swt.graphics.Point" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="false" hints3:type="java.lang.Boolean" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="0" hints3:type="java.lang.Integer" xsi:type="hints3:PropertyValue"/>
+                    </hints3:property>
+                </hints3:hintedElement>
             </hints3:hintedElement>
             <hints3:hintedElement xsi:type="hints3:HintedElement">
                 <hints3:target xlink:href="#archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="instance:XMLLink" xlink:type="simple"/>
@@ -749,20 +786,20 @@
                     </hints3:hintedElement>
                 </hints3:hintedElement>
                 <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#componentffa80168-e91f5006-eb83b3dd-6021080d" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                    <hints3:target xlink:href="#componentffa80168-e9653c5b-999dd02e-60210f32" xsi:type="instance:XMLLink" xlink:type="simple"/>
                     <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10450,9875,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
+                        <hints3:value hints3:data="10500,10000,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
                     </hints3:property>
                     <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
                         <hints3:value hints3:data="197,203,255" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
                     </hints3:property>
                     <hints3:hintedElement xsi:type="hints3:HintedElement">
-                        <hints3:target xlink:href="#interfaceffa80168-e91fb180-6b86f1aa-6021084d" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                        <hints3:target xlink:href="#interfaceffa80168-e9653c5b-d347e670-60210f33" xsi:type="instance:XMLLink" xlink:type="simple"/>
                         <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10500,9975" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                            <hints3:value hints3:data="10559,10100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10520,9955" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                            <hints3:value hints3:data="10575,10125" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                         </hints3:property>
                         <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
                             <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
@@ -890,45 +927,6 @@
                     </hints3:hintedElement>
                 </hints3:hintedElement>
                 <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#connectorffa80168-e921b09b-a945dde8-60210872" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                    <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10475,10075,100,52" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="255,234,191" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
-                    </hints3:property>
-                    <hints3:hintedElement xsi:type="hints3:HintedElement">
-                        <hints3:target xlink:href="#interfaceffa80168-e922159f-1205d9c5-602108ce" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                        <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10525,10075" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10545,10055" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
-                        </hints3:property>
-                    </hints3:hintedElement>
-                    <hints3:hintedElement xsi:type="hints3:HintedElement">
-                        <hints3:target xlink:href="#interfaceffa80168-e922e1a9-994d7776-602108f9" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                        <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10525,10127" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="10545,10107" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="true" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
-                        </hints3:property>
-                        <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
-                            <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
-                        </hints3:property>
-                    </hints3:hintedElement>
-                </hints3:hintedElement>
-                <hints3:hintedElement xsi:type="hints3:HintedElement">
                     <hints3:target xlink:href="#linkffa1126d-d505484c-c5f40ca8-cdb51767" xsi:type="instance:XMLLink" xlink:type="simple"/>
                     <hints3:property hints3:name="glassEndpoint1" xsi:type="hints3:Property">
                         <hints3:value hints3:data="10722,10175" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
@@ -1018,36 +1016,6 @@
                         <hints3:value hints3:data="0,0,0" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
                     </hints3:property>
                 </hints3:hintedElement>
-                <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#linkffa80168-e92532dc-296eaa79-602109aa" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                    <hints3:property hints3:name="glassEndpoint1" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10525,10127" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="glassEndpoint2" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10475,10375" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="glassMidpoints" xsi:type="hints3:Property">
-                        <hints3:value xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point[]"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="splineColor" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="0,0,0" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
-                    </hints3:property>
-                </hints3:hintedElement>
-                <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#linkffa80168-e9255d57-f9cfc802-602109b8" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                    <hints3:property hints3:name="glassEndpoint1" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10500,9975" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="glassEndpoint2" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="10525,10075" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="glassMidpoints" xsi:type="hints3:Property">
-                        <hints3:value xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point[]"/>
-                    </hints3:property>
-                    <hints3:property hints3:name="splineColor" xsi:type="hints3:Property">
-                        <hints3:value hints3:data="0,0,0" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
-                    </hints3:property>
-                </hints3:hintedElement>
             </hints3:hintedElement>
             <hints3:hintedElement xsi:type="hints3:HintedElement">
                 <hints3:target xlink:href="#componentTypeffa1126d-ceb1efa0-bd879064-cdb50252" xsi:type="instance:XMLLink" xlink:type="simple"/>
@@ -1058,7 +1026,7 @@
                     <hints3:value hints3:data="104,113,191" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
                 </hints3:property>
                 <hints3:hintedElement xsi:type="hints3:HintedElement">
-                    <hints3:target xlink:href="#componentTypeffa1126d-ceb1efa0-bd879064-cdb50272" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                    <hints3:target xlink:href="#signatureffa1126d-ceb1efa0-bd879064-cdb50272" xsi:type="instance:XMLLink" xlink:type="simple"/>
                     <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
                         <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                     </hints3:property>
@@ -1113,6 +1081,21 @@
                 </hints3:hintedElement>
                 <hints3:hintedElement xsi:type="hints3:HintedElement">
                     <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280058" xsi:type="instance:XMLLink" xlink:type="simple"/>
+                    <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAnchorPoint" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagVisible" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="false" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Boolean"/>
+                    </hints3:property>
+                    <hints3:property hints3:name="tagAngle" xsi:type="hints3:Property">
+                        <hints3:value hints3:data="0" xsi:type="hints3:PropertyValue" hints3:type="java.lang.Integer"/>
+                    </hints3:property>
+                </hints3:hintedElement>
+                <hints3:hintedElement xsi:type="hints3:HintedElement">
+                    <hints3:target xlink:href="#signatureffa80164-2da4823f-c3750c0b-00280073" xsi:type="instance:XMLLink" xlink:type="simple"/>
                     <hints3:property hints3:name="glassAnchorPoint" xsi:type="hints3:Property">
                         <hints3:value hints3:data="10030,10030" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Point"/>
                     </hints3:property>
@@ -1307,15 +1290,39 @@
                     </hints3:property>
                 </hints3:hintedElement>
             </hints3:hintedElement>
-            <hints3:hintedElement xsi:type="hints3:HintedElement">
-                <hints3:target xlink:href="#connectorTypeffa80168-e92076b4-ab6140c9-60210871" xsi:type="instance:XMLLink" xlink:type="simple"/>
-                <hints3:property hints3:name="glassBoundingBox" xsi:type="hints3:Property">
-                    <hints3:value hints3:data="10030,10030,100,100" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.Rectangle"/>
-                </hints3:property>
-                <hints3:property hints3:name="boxColor" xsi:type="hints3:Property">
-                    <hints3:value hints3:data="104,113,191" xsi:type="hints3:PropertyValue" hints3:type="org.eclipse.swt.graphics.RGB"/>
-                </hints3:property>
-            </hints3:hintedElement>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             
