@@ -13,6 +13,7 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 	@Override
 	public void begin() {
 		// TODO Auto-generated method stub
+		
 	}
 	
 	@Override
