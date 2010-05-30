@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,11 +56,28 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	@Override
 	public void ConfigurationSent(Configuration configuration){
 		// TODO Auto-generated method stub
-		System.out.println("Start");	
-		double i = 100000000000.0;
+//		System.out.println("Start");	
+//		double i = 1000000000.0;
+//		
+//		while (i > 0)
+//			i--;
+//		System.out.println("End");
 		
-		while (i > 0)
-			i--;
-		System.out.println("End");
+		 File file = new File("Configuration.txt");
+		 FileWriter fw;
+		try {
+		 fw = new FileWriter(file);
+		 fw.append(configuration.getDeviceName());
+		 fw.append("\n");
+		 fw.append(configuration.getLocation());
+		 fw.append("\n");
+		 fw.append((configuration.getTimeInterval()).toString());
+		 fw.append("\n");
+		 fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }
