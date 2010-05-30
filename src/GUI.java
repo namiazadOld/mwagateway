@@ -13,6 +13,12 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
 	private IClientService clientService;
 	
 	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		super.init();
+	}
+	
+	@Override
 	public void begin() {
 
 		// TODO Auto-generated method stub
@@ -43,6 +49,17 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
 	@Override
 	public void TemperatureUpdated(Temperature temperature) {
 		// TODO Auto-generated method stub
+		
+		while (form == null);
 		form.UpdateTemperature(temperature.getValue());
+	}
+
+	@Override
+	public void ConfigurationUpdated(Configuration configuration) {
+		// TODO Auto-generated method stub
+		System.out.println(configuration.getDeviceName());
+		
+		while (form == null);
+		form.UpdateConfiguration(configuration);
 	}
 }
