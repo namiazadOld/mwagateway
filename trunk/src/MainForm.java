@@ -3,6 +3,13 @@ import javax.swing.ImageIcon;
 
 public class MainForm extends javax.swing.JFrame {
 
+	
+	private IClientService clientService;
+	
+	public void setClientService(IClientService clientService) {
+		this.clientService = clientService;
+	}
+	
     /** Creates new form MainForm */
     public MainForm() {
         initComponents();
@@ -425,6 +432,8 @@ public class MainForm extends javax.swing.JFrame {
         DeviceLabel.setText(DeviceNameTextField.getText());
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
+        
+        clientService.ConfigurationSent(new Configuration("", "", 12));
 }                                                         
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
