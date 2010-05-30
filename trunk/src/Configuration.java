@@ -4,9 +4,9 @@ public class Configuration {
 	
 	private String location;
 	private String deviceName;
-	private double timeInterval;
+	private int timeInterval;
 	
-	public Configuration(String location, String deviceName, double timeInterval )
+	public Configuration(String deviceName, String location , int timeInterval )
 	{
 		this.location = location;
 		this.deviceName = deviceName;
@@ -22,7 +22,7 @@ public class Configuration {
 		return deviceName;
 	}
 	
-	public Double getTimeInterval() {
+	public int getTimeInterval() {
 		return timeInterval;
 	}
 	

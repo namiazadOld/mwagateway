@@ -1,7 +1,9 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,21 +29,72 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public static final IMyxName INTERFACE_NAME_IN_CLIENTSERVICE= MyxUtils.createName("ClientService");
 	public static final IMyxName INTERFACE_NAME_OUT_GATEWAYSERVICE= MyxUtils.createName("GatewayService");
 	
+	private static final String CONFIGURATIONFILENAME = "Configuration.txt";
+	private static final int INITIALDELAY = 5000;
+	
 	private ISensorAPI sensorAPI;
 	private ITemperatureSynchronizer temperatureSynchronizer;
 	private Timer timer;
 	private IGatewayService gatewayService;
 	
+	private Configuration configuration;
+	
+	private void loadConfiguration()
+	{
+			FileReader file;
+			String location;
+			String deviceName;
+			int timeInterval;
+			try 
+			{
+				File f = new File(CONFIGURATIONFILENAME);
+				if (!f.exists())
+					return;
+				
+				file = new FileReader(CONFIGURATIONFILENAME);
+				
+				BufferedReader br = new BufferedReader(file);
+					 
+				try 
+				{
+					deviceName = br.readLine();
+					location = br.readLine();
+					timeInterval = Integer.parseInt(br.readLine());
+					configuration = new Configuration(location, deviceName, timeInterval);
+					
+					br.close();
+					file.close();
+					
+					temperatureSynchronizer.ConfigurationUpdated(configuration);
+				} 
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+	}
+	
 	@Override
 	public void begin() {
 		// TODO Auto-generated method stub
 		
+		
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
 		temperatureSynchronizer = (ITemperatureSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER);
 		timer = new Timer();
-		timer.scheduleAtFixedRate(new TemperatureManager(), 5000, 5000);
 		gatewayService = (IGatewayService)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_GATEWAYSERVICE);
+		
+		loadConfiguration();
+		int interval = configuration == null ? INITIALDELAY : configuration.getTimeInterval();
+		timer.scheduleAtFixedRate(new TemperatureManager(), INITIALDELAY, interval);
+		
 	}
+	
+	
 	
 	@Override
 	public Object getServiceObject(IMyxName name) {
@@ -70,15 +123,19 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		
 		 File file = new File("Configuration.txt");
 		 FileWriter fw;
-		try {
-		 fw = new FileWriter(file);
-		 fw.append(configuration.getDeviceName());
-		 fw.append("\r\n");
-		 fw.append(configuration.getLocation());
-		 fw.append("\r\n");
-		 fw.append((configuration.getTimeInterval()).toString());
-		 fw.append("\r\n");
-		 fw.close();
+		 try 
+		 {
+			 fw = new FileWriter(file);
+			 fw.append(configuration.getDeviceName());
+			 fw.append("\r\n");
+			 fw.append(configuration.getLocation());
+			 fw.append("\r\n");
+			 fw.append(new Integer(configuration.getTimeInterval()).toString());
+			 fw.append("\r\n");
+			 fw.close();
+			 
+			 this.configuration = configuration;
+			 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

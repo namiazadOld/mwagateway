@@ -436,7 +436,7 @@ public class MainForm extends javax.swing.JFrame {
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
         
-        clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Double.parseDouble(TimeLabel.getText())));
+        clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Integer.parseInt(TimeLabel.getText())));
 }                                                         
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -461,6 +461,14 @@ public class MainForm extends javax.swing.JFrame {
     	WeatherLabel.setText(Double.toString(value));
     	System.out.println(value);
     	repaint();
+    }
+    
+    public void UpdateConfiguration(Configuration configuration)
+    {
+	  	LocationLabel.setText(configuration.getLocation());
+	  	DeviceLabel.setText(configuration.getDeviceName());
+	  	TimeLabel.setText(new Integer(configuration.getTimeInterval()).toString());
+	  	repaint();
     }
 
     /**
