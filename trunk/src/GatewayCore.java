@@ -29,9 +29,7 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 
 	@Override
 	public void query(QueryParameter parameter) {
-		// TODO Auto-generated method stub
-		System.out.println("gatewayQuery");
-		
+		// TODO Auto-generated method stub		
 		searchCallService.Search(parameter);
 	}
 
