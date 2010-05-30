@@ -30,7 +30,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public static final IMyxName INTERFACE_NAME_OUT_GATEWAYSERVICE= MyxUtils.createName("GatewayService");
 	public static final IMyxName INTERFACE_NAME_IN_SEARCHCALLSERVICE= MyxUtils.createName("SearchCallService");
 	
-	private static final String CONFIGURATIONFILENAME = "Configuration.txt";
+	private String CONFIGURATIONFILENAME = "";
 	private static final int INITIALDELAY = 5000;
 	
 	private ISensorAPI sensorAPI;
@@ -39,6 +39,13 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	private IGatewayService gatewayService;
 	
 	private Configuration configuration;
+	
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		Helper.INDEX++;
+		CONFIGURATIONFILENAME = "Configuration" + Helper.INDEX + ".txt";
+	}
 	
 	private void loadConfiguration()
 	{
@@ -61,7 +68,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 					deviceName = br.readLine();
 					location = br.readLine();
 					timeInterval = Integer.parseInt(br.readLine());
-					configuration = new Configuration(location, deviceName, timeInterval);
+					configuration = new Configuration(deviceName, location, timeInterval);
 					
 					br.close();
 					file.close();
@@ -124,7 +131,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 //			i--;
 //		System.out.println("End");
 		
-		 File file = new File("Configuration.txt");
+		 File file = new File(CONFIGURATIONFILENAME);
 		 FileWriter fw;
 		 try 
 		 {
