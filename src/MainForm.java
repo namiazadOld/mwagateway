@@ -433,7 +433,7 @@ public class MainForm extends javax.swing.JFrame {
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
         
-        clientService.ConfigurationSent(new Configuration("", "", 12));
+        clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Double.parseDouble(TimeLabel.getText())));
 }                                                         
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
