@@ -160,11 +160,11 @@ public class MainForm extends javax.swing.JFrame {
 
         MainConfigurationPanel.setBackground(new java.awt.Color(153, 153, 255));
 
-        DeviceLabel.setText("device");
+        DeviceLabel.setText(null);
 
-        LocationLabel.setText("location");
+        LocationLabel.setText(null);
 
-        TimeLabel.setText("time");
+        TimeLabel.setText(null);
 
         javax.swing.GroupLayout MainConfigurationPanelLayout = new javax.swing.GroupLayout(MainConfigurationPanel);
         MainConfigurationPanel.setLayout(MainConfigurationPanelLayout);
@@ -261,14 +261,14 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel4.setText("Location:");
 
-        QueryLocationTextField.setText("location");
+        QueryLocationTextField.setText(null);
         QueryLocationTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 QueryLocationTextFieldActionPerformed(evt);
             }
         });
 
-        QueryTimeTextField.setText("time");
+        QueryTimeTextField.setText(null);
 
         jLabel5.setText("Time:");
 
@@ -300,7 +300,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel12.setText("Radius:");
 
-        QueryRadiusTextField.setText("radius");
+        QueryRadiusTextField.setText(null);
 
         javax.swing.GroupLayout QueryPanelLayout = new javax.swing.GroupLayout(QueryPanel);
         QueryPanel.setLayout(QueryPanelLayout);
@@ -452,8 +452,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-    	List<QueryResult> results = clientService.query(new QueryParameter("Delft", 12, 13));
-    	System.out.println(results.get(0).getDeviceName());
+    	clientService.query(new QueryParameter("Delft", 12, 13));
     }           
     
     public void UpdateTemperature(double value)

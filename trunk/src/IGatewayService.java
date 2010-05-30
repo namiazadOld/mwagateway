@@ -3,5 +3,5 @@ import java.util.List;
 
 public interface IGatewayService {
 
-	public List<QueryResult> query(QueryParameter parameter);
+	public void query(QueryParameter parameter);
 }
