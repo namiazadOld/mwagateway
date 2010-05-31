@@ -20,12 +20,12 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		public void run()
 		{
 			Temperature temperature = new Temperature(sensorAPI.CurrentTemperatureInC(), 0);
-			temperatureSynchronizer.TemperatureUpdated(temperature);
+			guiSynchronizer.TemperatureUpdated(temperature);
 		}
 	}
 	
 	public static final IMyxName INTERFACE_NAME_OUT_SENSORAPI = MyxUtils.createName("SensorAPI");
-	public static final IMyxName INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER = MyxUtils.createName("TemperatureSynchronizer");
+	public static final IMyxName INTERFACE_NAME_OUT_GUISYNCHRONIZER = MyxUtils.createName("GuiSynchronizer");
 	public static final IMyxName INTERFACE_NAME_IN_CLIENTSERVICE= MyxUtils.createName("ClientService");
 	public static final IMyxName INTERFACE_NAME_OUT_QUERYHANDLER= MyxUtils.createName("QueryHandler");
 	public static final IMyxName INTERFACE_NAME_IN_SEARCHCALLSERVICE= MyxUtils.createName("SearchCallService");
@@ -35,7 +35,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	private static final int INITIALDELAY = 5000;
 	
 	private ISensorAPI sensorAPI;
-	private ITemperatureSynchronizer temperatureSynchronizer;
+	private IGuiSynchronizer guiSynchronizer;
 	private Timer timer;
 	private IQueryHandler queryHandler;
 	
@@ -43,7 +43,6 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
 		Helper.INDEX++;
 		CONFIGURATIONFILENAME = "Configuration" + Helper.INDEX + ".txt";
 	}
@@ -74,7 +73,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 					br.close();
 					file.close();
 					
-					temperatureSynchronizer.ConfigurationUpdated(configuration);
+					guiSynchronizer.ConfigurationUpdated(configuration);
 				} 
 				catch (IOException e)
 				{
@@ -82,18 +81,15 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 				}
 				
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 	}
 	
 	@Override
 	public void begin() {
-		// TODO Auto-generated method stub
-		
 		
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
-		temperatureSynchronizer = (ITemperatureSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER);
+		guiSynchronizer = (IGuiSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_GUISYNCHRONIZER);
 		timer = new Timer();
 		queryHandler = (IQueryHandler)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_QUERYHANDLER);
 		
@@ -107,11 +103,10 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	
 	@Override
 	public Object getServiceObject(IMyxName name) {
-		// TODO Auto-generated method stub
 		if (name.equals(INTERFACE_NAME_OUT_SENSORAPI))
 			return sensorAPI;
-		else if (name.equals(INTERFACE_NAME_OUT_TEMPERATURESYNCHRONIZER))
-			return temperatureSynchronizer;
+		else if (name.equals(INTERFACE_NAME_OUT_GUISYNCHRONIZER))
+			return guiSynchronizer;
 		else if (name.equals(INTERFACE_NAME_IN_CLIENTSERVICE))
 			return this;
 		else if (name.equals(INTERFACE_NAME_IN_SEARCHCALLSERVICE))
@@ -126,13 +121,6 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	
 	@Override
 	public void ConfigurationSent(Configuration configuration){
-		// TODO Auto-generated method stub
-//		System.out.println("Start");	
-//		double i = 1000000000.0;
-//		
-//		while (i > 0)
-//			i--;
-//		System.out.println("End");
 		
 		 File file = new File(CONFIGURATIONFILENAME);
 		 FileWriter fw;
@@ -150,7 +138,6 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 			 this.configuration = configuration;
 			 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -158,21 +145,18 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 
 	@Override
 	public void query(QueryParameter parameter) {
-		// TODO Auto-generated method stub
 		queryHandler.querySent(parameter);
 	}
 
 	@Override
 	public QueryResult Search(QueryParameter parameter) {
-		// TODO Auto-generated method stub
 		if (parameter.getLocation().toLowerCase().equals(configuration.getLocation().toLowerCase()))
 			return new QueryResult(sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName());
 		return null;
 	}
 
 	@Override
-	public void processed(QueryResult result) {
-		// TODO Auto-generated method stub
-		temperatureSynchronizer.QueryResultReceived(result);
+	public void queryProcessed(QueryResult result) {
+		guiSynchronizer.QueryResultReceived(result);
 	}
 }

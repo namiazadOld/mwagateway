@@ -37,7 +37,7 @@ public class QueryEngine extends AbstractMyxSimpleBrick implements IQueryHandler
 		// TODO Auto-generated method stub
 		
 		QueryResult result = gatewayService.query(parameter);
-		queryProcessed.processed(result);
+		queryProcessed.queryProcessed(result);
 	}
 
 }

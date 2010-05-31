@@ -1,5 +1,5 @@
 
 public interface IQueryProcessed {
 
-	public void processed(QueryResult result);
+	public void queryProcessed(QueryResult result);
 }
