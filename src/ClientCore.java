@@ -165,7 +165,8 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		
 		System.out.println(configuration.getDeviceName());
 		
-		if (parameter.getLocation().equals(configuration.getLocation()))
+		
+		if (parameter.getLocation().toLowerCase().equals(configuration.getLocation().toLowerCase()))
 			return new QueryResult(sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName());
 		return null;
 	}
