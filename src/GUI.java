@@ -59,4 +59,12 @@ public class GUI extends AbstractMyxSimpleBrick implements ITemperatureSynchroni
 		while (form == null);
 		form.UpdateConfiguration(configuration);
 	}
+
+	@Override
+	public void QueryResultReceived(QueryResult result) {
+		// TODO Auto-generated method stub
+		
+		while (form == null);
+		form.UpdateResult(result);
+	}
 }

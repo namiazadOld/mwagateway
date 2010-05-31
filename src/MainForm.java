@@ -1,5 +1,7 @@
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 
 
@@ -65,7 +67,7 @@ public class MainForm extends javax.swing.JFrame {
         QueryTimeTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ResultPanel = new javax.swing.JPanel();
+        ResultPanel = new JTextArea();
         SearchButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -475,6 +477,55 @@ public class MainForm extends javax.swing.JFrame {
 	  	TimeLabel.setText(new Integer(configuration.getTimeInterval()).toString());
 	  	repaint();
     }
+    
+    public void UpdateResult(QueryResult result)
+    {
+    	
+		System.out.println("Result : " + result.getMin());
+		ResultPanel.removeAll();
+		
+		if (result == null){
+			ResultPanel.setText("Location is unavailable!");
+		}
+		else {
+			ResultPanel.setText("Device Name :" + result.getDeviceName()+ "\r\n" );
+			ResultPanel.append("Minimum Temperature :" + result.getMin()+ "\r\n");
+			ResultPanel.append("Maximum Temperature :" + result.getMax()+ "\r\n");
+			ResultPanel.append("Average Temperature :" + result.getAverage()+ "\r\n" );
+		}
+    	
+//    	ResultPanel.removeAll();
+//    	ResultPanel.setVisible(false);
+//    	ResultPanel.setLayout(null);
+//    	
+//    	if (result == null){
+//    		JLabel lblNotFound = new JLabel();
+//    		lblNotFound.setText();
+//    		ResultPanel.add(lblNotFound);
+//    	}
+//    	else {	
+//    	JLabel lblDevice = new JLabel();
+//    	lblDevice.setText(result.getDeviceName());
+//    	JLabel lblMin= new JLabel();
+//    	lblMin.setText(new Double (result.getMin()).toString());
+//    	JLabel lblMax = new JLabel();
+//    	lblMax.setText(new Double (result.getMax()).toString());
+//    	JLabel lblAverage = new JLabel();
+//    	lblAverage.setText(new Double (result.getAverage()).toString());
+//    	
+//    	lblDevice.setVisible(true);
+//    	lblMin.setVisible(true);
+//    	lblMax.setVisible(true);
+//    	lblAverage.setVisible(true);
+//    	
+//    	ResultPanel.add(lblDevice);
+//    	ResultPanel.add(lblMin);
+//    	ResultPanel.add(lblMax);
+//    	ResultPanel.add(lblAverage);
+//    	}
+//    	
+//    	ResultPanel.setVisible(true);
+    }
 
     /**
     * @param args the command line arguments
@@ -499,7 +550,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel QueryPanel;
     private javax.swing.JTextField QueryRadiusTextField;
     private javax.swing.JTextField QueryTimeTextField;
-    private javax.swing.JPanel ResultPanel;
+    private javax.swing.JTextArea ResultPanel;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField TimeIntervalTextField;
     private javax.swing.JLabel TimeLabel;
