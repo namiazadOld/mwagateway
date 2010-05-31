@@ -40,9 +40,14 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 		// TODO Auto-generated method stub		
 		
 		//For Asynchronous behavior demonstration
-		double h = 10000000000.0;
-		while (h > 0)
-			h--;
+		
+		if (parameter.getRadius() == 1)
+		{
+			double h = 10000000000.0;
+			while (h > 0)
+				h--;
+		}
+		
 		
 		searchCallService.Search(parameter);
 		
