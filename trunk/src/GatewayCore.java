@@ -36,7 +36,7 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 	}
 
 	@Override
-	public void query(QueryParameter parameter) {
+	public QueryResult query(QueryParameter parameter) {
 		// TODO Auto-generated method stub		
 		searchCallService.Search(parameter);
 		
@@ -47,10 +47,11 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 			if (answers[i] != null)
 			{
 				QueryResult res = (QueryResult)answers[i];
-				System.out.println("Result : " + res.getMin());
-				
+				return res;
 			}
 		}
+		
+		return null;
 	}
 
 }
