@@ -39,8 +39,8 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 	public QueryResult query(QueryParameter parameter) {
 		// TODO Auto-generated method stub		
 		
-		double h = 1000000000.0;
-		
+		//For Asynchronous behavior demonstration
+		double h = 10000000000.0;
 		while (h > 0)
 			h--;
 		
