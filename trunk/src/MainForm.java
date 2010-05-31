@@ -481,7 +481,7 @@ public class MainForm extends javax.swing.JFrame {
     public void UpdateResult(QueryResult result)
     {
     	
-		System.out.println("Result : " + result.getMin());
+		//System.out.println("Result : " + result.getMin());
 		ResultPanel.removeAll();
 		
 		if (result == null){
