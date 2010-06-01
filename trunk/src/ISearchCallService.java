@@ -1,5 +1,7 @@
+import java.util.List;
+
 
 public interface ISearchCallService {
 
-	public QueryResult Search(QueryParameter parameter);
+	public List<QueryResult> Search(QueryParameter parameter);
 }

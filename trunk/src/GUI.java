@@ -1,3 +1,5 @@
+import java.util.List;
+
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
 import edu.uci.isr.myx.fw.IMyxName;
 import edu.uci.isr.myx.fw.MyxUtils;
@@ -61,7 +63,7 @@ public class GUI extends AbstractMyxSimpleBrick implements IGuiSynchronizer{
 	}
 
 	@Override
-	public void QueryResultReceived(QueryResult result) {
+	public void QueryResultReceived(List<QueryResult> result) {
 		// TODO Auto-generated method stub
 		
 		while (form == null);

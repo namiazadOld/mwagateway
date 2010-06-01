@@ -1,5 +1,7 @@
+import java.util.List;
+
 
 public interface IQueryProcessed {
 
-	public void queryProcessed(QueryResult result);
+	public void queryProcessed(List<QueryResult> result);
 }

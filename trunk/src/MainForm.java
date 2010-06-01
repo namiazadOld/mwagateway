@@ -1,4 +1,6 @@
 
+import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -533,7 +535,7 @@ public class MainForm extends javax.swing.JFrame {
 	  	repaint();
     }
     
-    public void UpdateResult(QueryResult result)
+    public void UpdateResult(List<QueryResult> resultList)
     {
     	counter--;
     	if(counter==0)
@@ -543,14 +545,20 @@ public class MainForm extends javax.swing.JFrame {
 		//System.out.println("Result : " + result.getMin());
 		ResultPanel.removeAll();
 		
-		if (result == null){
+		if (resultList == null){
 			ResultPanel.setText("Location is unavailable!");
 		}
 		else {
-			ResultPanel.setText("Device Name :" + result.getDeviceName()+ "\r\n" );
-			ResultPanel.append("Minimum Temperature :" + result.getMin()+ "\r\n");
-			ResultPanel.append("Maximum Temperature :" + result.getMax()+ "\r\n");
-			ResultPanel.append("Average Temperature :" + result.getAverage()+ "\r\n" );
+			
+			ResultPanel.setText("");
+			for (QueryResult result : resultList)
+			{
+				ResultPanel.append("Device Name: " + result.getDeviceName()+ "--" );
+				ResultPanel.append("Minimum: " + result.getMin()+ "--");
+				ResultPanel.append("Maximum: " + result.getMax()+ "--");
+				ResultPanel.append("Average: " + result.getAverage()+ "\r\n" );
+			}
+			
 		}
     }
  public boolean CheckValidity(String validation){
