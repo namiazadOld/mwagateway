@@ -492,27 +492,30 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {   
     	
+    	counter++;
     	if (
     			QueryLocationTextField.getText().isEmpty()||
     			QueryRadiusTextField.getText().isEmpty() ||
     			QueryTimeTextField.getText().isEmpty()){
     		
     		 ResultPanel.setText("Please fill the required information!");	
+    		 counter--;
     		
     	}
 //    	
-//    	  boolean digit = false;
-//          int i=0;
-//          while(!digit)
+//    	
+//Boolean digit = false;
+//          if(!digit)
 //          {
 //          try{
 //              Integer.parseInt( QueryRadiusTextField.getText());
 //              
 //          } catch(NumberFormatException nfe) {
-//             i=0; 
+//             
 //             ResultPanel.setText("Please fill the Radius textfield with numbers!");
 //             
 //          }
+//          else 
 //          }
 //          digit = false;
 //          i=0;
@@ -559,8 +562,11 @@ public class MainForm extends javax.swing.JFrame {
     
     public void UpdateResult(QueryResult result)
     {
+    	counter--;
+    	if(counter==0)
+    		SearchLabel.setVisible(false);
     	//SearchLabel.setVisible(false);
-    	SearchLabel.setVisible(false);
+    	
 		//System.out.println("Result : " + result.getMin());
 		ResultPanel.removeAll();
 		
@@ -618,6 +624,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel SearchLabel;
     private javax.swing.ImageIcon WeatherIcon;
+    private int counter;
     // End of variables declaration
 
 }
