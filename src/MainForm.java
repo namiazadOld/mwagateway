@@ -2,6 +2,7 @@
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 
 
@@ -28,6 +29,7 @@ public class MainForm extends javax.swing.JFrame {
            QueryLocationTextField.setText(null);
         QueryTimeTextField.setText(null);
         QueryRadiusTextField.setText(null);
+        SearchLabel.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -75,6 +77,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         ImageIcon myIcon = new ImageIcon("MWA.png");
         PhotoLabel = new javax.swing.JLabel(myIcon);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        SearchLabel = new javax.swing.JLabel(WeatherIcon);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,6 +166,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(BackButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ChangeConfigurationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        
+        
 
         MainConfigurationPanel.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -199,6 +205,11 @@ public class MainForm extends javax.swing.JFrame {
        jLabel11.setText("Current Weather:");
 
         WeatherLabel.setText("");
+        
+        ResultPanel.setColumns(20);
+        ResultPanel.setEditable(false);
+        ResultPanel.setRows(5);
+        jScrollPane1.setViewportView(ResultPanel);
 
         javax.swing.GroupLayout ConfigurationPanelLayout = new javax.swing.GroupLayout(ConfigurationPanel);
         ConfigurationPanel.setLayout(ConfigurationPanelLayout);
@@ -278,6 +289,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel5.setText("Time:");
 
         jLabel6.setText("hours");
+        
 
         ResultPanel.setBackground(new java.awt.Color(255, 255, 255));
         ResultPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -334,6 +346,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueryPanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                                 .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SearchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(114, 114, 114))))
                     .addGroup(QueryPanelLayout.createSequentialGroup()
                         .addGap(272, 272, 272)
@@ -366,7 +379,8 @@ public class MainForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(SearchButton)))
+                        .addComponent(SearchButton)
+                        .addComponent(SearchLabel)))
                 .addGap(11, 11, 11)
                 .addComponent(ResultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -437,12 +451,30 @@ public class MainForm extends javax.swing.JFrame {
         ChangeButtonPanel.setVisible(false);
         ChanegedPanel.setVisible(false);
         MainConfigurationPanel.setVisible(true);
+//        while (LocationTextField.getText().isEmpty() ||DeviceNameTextField.getText().isEmpty()|| TimeIntervalTextField.getText().isEmpty()){
+//        ResultPanel.setText("Please fill the required information!");	
+//        
+//        }
+//        boolean digit = false;
+//        int i=0;
+//        while(!digit)
+//        {
+//        try{
+//            Integer.parseInt( TimeIntervalTextField.getText());
+//        } catch(NumberFormatException nfe) {
+//           i=0; 
+//           ResultPanel.setText("Please fill the Time interval textfield with numbers!");
+//           
+//        }
+//        if(i!=1) digit=true;
+//        }
         DeviceLabel.setText(DeviceNameTextField.getText());
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
         
         clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Integer.parseInt(TimeLabel.getText())));
-}                                                         
+        ResultPanel.setText(null);
+    }                                                         
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         ChangeButton.setVisible(true);
@@ -455,13 +487,54 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                                      
 
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {   
+    	
+//    	while (
+//    			QueryLocationTextField.getText().isEmpty()||
+//    			QueryRadiusTextField.getText().isEmpty() ||
+//    			QueryTimeTextField.getText().isEmpty()){
+//    		
+//    		 ResultPanel.setText("Please fill the required information!");	
+//    		
+//    	}
+//    	
+//    	  boolean digit = false;
+//          int i=0;
+//          while(!digit)
+//          {
+//          try{
+//              Integer.parseInt( QueryRadiusTextField.getText());
+//              
+//          } catch(NumberFormatException nfe) {
+//             i=0; 
+//             ResultPanel.setText("Please fill the Radius textfield with numbers!");
+//             
+//          }
+//          }
+//          digit = false;
+//          i=0;
+//          while(!digit)
+//          {
+//          try{
+//              Integer.parseInt( QueryTimeTextField.getText());
+//              
+//          } catch(NumberFormatException nfe) {
+//             i=0; 
+//             ResultPanel.setText("Please fill the Time textfield with numbers!");
+//             
+//          }
+//          if(i!=1) digit=true;
+//          }
+//    		
+          
+    	SearchLabel.setVisible(true);
+    	ResultPanel.setText("Loading data...");
+    	//SearchLabel.setIcon(WeatherIcon);
         // TODO add your handling code here:
-    	clientService.query(new QueryParameter(DeviceLabel.getText(),
-    			QueryLocationTextField.getText(),
+    	clientService.query(new QueryParameter(DeviceLabel.getText(),QueryLocationTextField.getText(),
     			Double.parseDouble(QueryRadiusTextField.getText()),
     			Double.parseDouble(QueryTimeTextField.getText())));
-    }           
+    }
     
     public void UpdateTemperature(double value)
     {
@@ -480,7 +553,8 @@ public class MainForm extends javax.swing.JFrame {
     
     public void UpdateResult(QueryResult result)
     {
-    	
+    	//SearchLabel.setVisible(false);
+    	SearchLabel.setIcon(null);
 		//System.out.println("Result : " + result.getMin());
 		ResultPanel.removeAll();
 		
@@ -493,38 +567,6 @@ public class MainForm extends javax.swing.JFrame {
 			ResultPanel.append("Maximum Temperature :" + result.getMax()+ "\r\n");
 			ResultPanel.append("Average Temperature :" + result.getAverage()+ "\r\n" );
 		}
-    	
-//    	ResultPanel.removeAll();
-//    	ResultPanel.setVisible(false);
-//    	ResultPanel.setLayout(null);
-//    	
-//    	if (result == null){
-//    		JLabel lblNotFound = new JLabel();
-//    		lblNotFound.setText();
-//    		ResultPanel.add(lblNotFound);
-//    	}
-//    	else {	
-//    	JLabel lblDevice = new JLabel();
-//    	lblDevice.setText(result.getDeviceName());
-//    	JLabel lblMin= new JLabel();
-//    	lblMin.setText(new Double (result.getMin()).toString());
-//    	JLabel lblMax = new JLabel();
-//    	lblMax.setText(new Double (result.getMax()).toString());
-//    	JLabel lblAverage = new JLabel();
-//    	lblAverage.setText(new Double (result.getAverage()).toString());
-//    	
-//    	lblDevice.setVisible(true);
-//    	lblMin.setVisible(true);
-//    	lblMax.setVisible(true);
-//    	lblAverage.setVisible(true);
-//    	
-//    	ResultPanel.add(lblDevice);
-//    	ResultPanel.add(lblMin);
-//    	ResultPanel.add(lblMax);
-//    	ResultPanel.add(lblAverage);
-//    	}
-//    	
-//    	ResultPanel.setVisible(true);
     }
 
     /**
@@ -567,6 +609,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel SearchLabel;
+    private javax.swing.ImageIcon WeatherIcon;
     // End of variables declaration
 
 }
