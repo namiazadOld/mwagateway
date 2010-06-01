@@ -307,7 +307,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGap(0, 169, Short.MAX_VALUE)
         );
 
-        SearchButton.setText("Serach");
+        SearchButton.setText("Search");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchButtonActionPerformed(evt);
