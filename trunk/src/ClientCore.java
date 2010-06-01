@@ -120,7 +120,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	}
 	
 	@Override
-	public void ConfigurationSent(Configuration configuration){
+	public void configurationSent(Configuration configuration){
 		
 		 File file = new File(CONFIGURATIONFILENAME);
 		 FileWriter fw;
