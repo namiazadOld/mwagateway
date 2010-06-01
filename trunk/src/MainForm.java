@@ -447,14 +447,11 @@ public class MainForm extends javax.swing.JFrame {
     }                                            
 
     private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                          
-      ChangeButton.setVisible(true);
-        ChangeButtonPanel.setVisible(false);
-        ChanegedPanel.setVisible(false);
-        MainConfigurationPanel.setVisible(true);
-//        while (LocationTextField.getText().isEmpty() ||DeviceNameTextField.getText().isEmpty()|| TimeIntervalTextField.getText().isEmpty()){
-//        ResultPanel.setText("Please fill the required information!");	
-//        
-//        }
+      
+        if(LocationTextField.getText().isEmpty() ||DeviceNameTextField.getText().isEmpty()|| TimeIntervalTextField.getText().isEmpty()){
+        ResultPanel.setText("Please fill the required information!");	
+        
+        }
 //        boolean digit = false;
 //        int i=0;
 //        while(!digit)
@@ -468,12 +465,18 @@ public class MainForm extends javax.swing.JFrame {
 //        }
 //        if(i!=1) digit=true;
 //        }
+        else {
+        	ChangeButton.setVisible(true);
+            ChangeButtonPanel.setVisible(false);
+            ChanegedPanel.setVisible(false);
+            MainConfigurationPanel.setVisible(true);
         DeviceLabel.setText(DeviceNameTextField.getText());
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
         
         clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Integer.parseInt(TimeLabel.getText())));
         ResultPanel.setText(null);
+        }
     }                                                         
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -489,14 +492,14 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {   
     	
-//    	while (
-//    			QueryLocationTextField.getText().isEmpty()||
-//    			QueryRadiusTextField.getText().isEmpty() ||
-//    			QueryTimeTextField.getText().isEmpty()){
-//    		
-//    		 ResultPanel.setText("Please fill the required information!");	
-//    		
-//    	}
+    	if (
+    			QueryLocationTextField.getText().isEmpty()||
+    			QueryRadiusTextField.getText().isEmpty() ||
+    			QueryTimeTextField.getText().isEmpty()){
+    		
+    		 ResultPanel.setText("Please fill the required information!");	
+    		
+    	}
 //    	
 //    	  boolean digit = false;
 //          int i=0;
@@ -526,7 +529,9 @@ public class MainForm extends javax.swing.JFrame {
 //          if(i!=1) digit=true;
 //          }
 //    		
-          
+    	else { 
+    	
+    	
     	SearchLabel.setVisible(true);
     	ResultPanel.setText("Loading data...");
     	//SearchLabel.setIcon(WeatherIcon);
@@ -534,6 +539,7 @@ public class MainForm extends javax.swing.JFrame {
     	clientService.query(new QueryParameter(DeviceLabel.getText(),QueryLocationTextField.getText(),
     			Double.parseDouble(QueryRadiusTextField.getText()),
     			Double.parseDouble(QueryTimeTextField.getText())));
+    }
     }
     
     public void UpdateTemperature(double value)
@@ -554,7 +560,7 @@ public class MainForm extends javax.swing.JFrame {
     public void UpdateResult(QueryResult result)
     {
     	//SearchLabel.setVisible(false);
-    	SearchLabel.setIcon(null);
+    	SearchLabel.setVisible(false);
 		//System.out.println("Result : " + result.getMin());
 		ResultPanel.removeAll();
 		
