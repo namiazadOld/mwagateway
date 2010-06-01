@@ -449,7 +449,7 @@ public class MainForm extends javax.swing.JFrame {
     private void ChangeConfigurationButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                          
       
         if(LocationTextField.getText().isEmpty() ||DeviceNameTextField.getText().isEmpty()|| TimeIntervalTextField.getText().isEmpty()){
-        ResultPanel.setText("Please fill the required information!");	
+        ResultPanel.setText("Please fill the required information in your configuration!");	
         
         }
         
@@ -490,7 +490,7 @@ public class MainForm extends javax.swing.JFrame {
     			QueryRadiusTextField.getText().isEmpty() ||
     			QueryTimeTextField.getText().isEmpty()){
     		
-    		 ResultPanel.setText("Please fill the required information!");	
+    		 ResultPanel.setText("Please fill the required information in your query!");	
     		 counter--;
     		
     	}
