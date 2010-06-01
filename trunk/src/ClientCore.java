@@ -55,6 +55,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	}
 	
 	public static final IMyxName INTERFACE_NAME_OUT_SENSORAPI = MyxUtils.createName("SensorAPI");
+	public static final IMyxName INTERFACE_NAME_OUT_LOCATIONAPI = MyxUtils.createName("LocationAPI");
 	public static final IMyxName INTERFACE_NAME_OUT_GUISYNCHRONIZER = MyxUtils.createName("GuiSynchronizer");
 	public static final IMyxName INTERFACE_NAME_IN_CLIENTSERVICE= MyxUtils.createName("ClientService");
 	public static final IMyxName INTERFACE_NAME_OUT_QUERYHANDLER= MyxUtils.createName("QueryHandler");
@@ -66,6 +67,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	private static final int INITIALDELAY = 5000;
 	
 	private ISensorAPI sensorAPI;
+	private ILocationAPI locationAPI;
 	private IGuiSynchronizer guiSynchronizer;
 	private Timer timer;
 	private IQueryHandler queryHandler;
@@ -121,6 +123,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public void begin() {
 		
 		sensorAPI = (ISensorAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_SENSORAPI);
+		locationAPI = (ILocationAPI)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_LOCATIONAPI);
 		guiSynchronizer = (IGuiSynchronizer) MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_GUISYNCHRONIZER);
 		timer = new Timer();
 		queryHandler = (IQueryHandler)MyxUtils.getFirstRequiredServiceObject(this, INTERFACE_NAME_OUT_QUERYHANDLER);
@@ -137,6 +140,8 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public Object getServiceObject(IMyxName name) {
 		if (name.equals(INTERFACE_NAME_OUT_SENSORAPI))
 			return sensorAPI;
+		if (name.equals(INTERFACE_NAME_OUT_LOCATIONAPI))
+			return locationAPI;
 		else if (name.equals(INTERFACE_NAME_OUT_GUISYNCHRONIZER))
 			return guiSynchronizer;
 		else if (name.equals(INTERFACE_NAME_IN_CLIENTSERVICE))
