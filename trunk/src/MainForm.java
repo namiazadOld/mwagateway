@@ -494,11 +494,17 @@ public class MainForm extends javax.swing.JFrame {
     		 counter--;
     		
     	}
-    	else if(!CheckValidity( QueryRadiusTextField.getText()) || !CheckValidity(QueryTimeTextField.getText())){
+    	else if(!CheckValidity( QueryRadiusTextField.getText())){
     		
-    		ResultPanel.setText("Please fill the Radius and Time textfield with numbers!");
+    		ResultPanel.setText("Please fill the Radius textfield with numbers!");
     		counter--;
     	}	
+    	
+    	else if(!CheckValidity(QueryTimeTextField.getText())){
+    		
+    		ResultPanel.setText("Please fill the Time textfield with numbers!");
+    		counter--;
+    	}
     	else { 
     	
     	
