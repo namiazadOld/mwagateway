@@ -453,7 +453,7 @@ public class MainForm extends javax.swing.JFrame {
         
         }
         
-        else if (DoubleCheckValidity(TimeIntervalTextField.getText())){
+        else if (!DoubleCheckValidity(TimeIntervalTextField.getText())){
         	ResultPanel.setText("Please fill the Time interval textfield with numbers!");
         }
 
