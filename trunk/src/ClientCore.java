@@ -29,12 +29,13 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		 try 
 		 {
 			 
+			 Calendar calendar = new GregorianCalendar();
 			 //For simplicity each day we delete the log. we only saves the log of one day
-			 boolean isAppend = Calendar.HOUR != 0;
+			 boolean isAppend = calendar.get(Calendar.HOUR_OF_DAY) != 0;
 			 
 			 fw = new FileWriter(file, isAppend);
 			 
-			 fw.append(configuration.getLocation() + "#" + temperature.getValue() + "#" + Calendar.HOUR);
+			 fw.append(configuration.getLocation() + "#" + temperature.getValue() + "#" + calendar.get(Calendar.HOUR_OF_DAY));
 			 fw.append("\r\n");
 			 fw.close();			 
 			 
@@ -188,9 +189,6 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	@Override
 	public List<QueryResult> Search(QueryParameter parameter) {
 				
-		//we only check the required query with current location of station. If we want to implement completely we have to search in log file.
-		if (!parameter.getLocation().toLowerCase().equals(configuration.getLocation().toLowerCase()))
-			return null;
 		
 		FileReader file;
 		List<QueryResult> results = new ArrayList<QueryResult>();
@@ -217,7 +215,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 					int hour = Integer.parseInt(parts[2]);
 					double temperature = Double.parseDouble(parts[1]);
 					
-					if (hour >= Calendar.HOUR - parameter.getHours())
+					if (parts[0].toLowerCase().equals(parameter.getLocation().toLowerCase()) && hour >= Calendar.HOUR - parameter.getHours())
 						results.add(new QueryResult(temperature, configuration.getDeviceName()));
 				}
 			
