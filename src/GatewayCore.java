@@ -34,9 +34,28 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 		return null;
 		
 	}
+	
+	private QueryResult CalculateMinMaxAvg(List<QueryResult> resultList)
+	{
+		double min = resultList.get(0).getTemperature();
+		double max = resultList.get(0).getTemperature();
+		double sum = 0;
+		
+		for (QueryResult res : resultList)
+		{
+			if (res.getTemperature() > max)
+				max = res.getTemperature();
+			if (res.getTemperature() < min)
+				min = res.getTemperature();
+			
+			sum += res.getTemperature();
+		}
+		
+		return new QueryResult(min, max, sum / (double)resultList.size(), resultList.get(0).getDeviceName());
+	}
 
 	@Override
-	public QueryResult query(QueryParameter parameter) {
+	public List<QueryResult> query(QueryParameter parameter) {
 		// TODO Auto-generated method stub		
 		
 		//For Asynchronous behavior demonstration
@@ -48,21 +67,23 @@ public class GatewayCore extends AbstractMyxSimpleBrick implements IGatewayServi
 				h--;
 		}
 		
-		
 		searchCallService.Search(parameter);
 		
 		Object[] answers = results.getReturnValues();
+		List<QueryResult> finalResult = new ArrayList<QueryResult>();
 		
 		for (int i = 0; i < answers.length; i++)
 		{
 			if (answers[i] != null)
 			{
-				QueryResult res = (QueryResult)answers[i];
-				return res;
+				List<QueryResult> res = (List<QueryResult>)answers[i];
+				finalResult.add(CalculateMinMaxAvg(res));
 			}
 		}
-		
-		return null;
+
+		if (finalResult.size() == 0)
+			return null;
+		return finalResult;
 	}
 
 }

@@ -1,3 +1,5 @@
+import java.util.List;
+
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
 import edu.uci.isr.myx.fw.IMyxName;
 import edu.uci.isr.myx.fw.MyxUtils;
@@ -36,7 +38,7 @@ public class QueryEngine extends AbstractMyxSimpleBrick implements IQueryHandler
 	public void querySent(QueryParameter parameter) {
 		// TODO Auto-generated method stub
 		
-		QueryResult result = gatewayService.query(parameter);
+		List<QueryResult> result = gatewayService.query(parameter);
 		queryProcessed.queryProcessed(result);
 	}
 

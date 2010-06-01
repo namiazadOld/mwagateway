@@ -4,8 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.omg.CORBA.Environment;
 
 import edu.uci.isr.myx.fw.AbstractMyxSimpleBrick;
 import edu.uci.isr.myx.fw.IMyxName;
@@ -15,11 +22,34 @@ import edu.uci.isr.myx.fw.MyxUtils;
 public class ClientCore extends AbstractMyxSimpleBrick implements IClientService, ISearchCallService, IQueryProcessed{
 	
 	
+	private void LogHistory(Temperature temperature)
+	{
+		 File file = new File(CACHFILENAME);
+		 FileWriter fw;
+		 try 
+		 {
+			 
+			 //For simplicity each day we delete the log. we only saves the log of one day
+			 boolean isAppend = Calendar.HOUR != 0;
+			 
+			 fw = new FileWriter(file, isAppend);
+			 
+			 fw.append(configuration.getLocation() + "#" + temperature.getValue() + "#" + Calendar.HOUR);
+			 fw.append("\r\n");
+			 fw.close();			 
+			 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	class TemperatureManager extends TimerTask
 	{
 		public void run()
 		{
 			Temperature temperature = new Temperature(sensorAPI.CurrentTemperatureInC(), 0);
+			LogHistory(temperature);
 			guiSynchronizer.TemperatureUpdated(temperature);
 		}
 	}
@@ -32,6 +62,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public static final IMyxName INTERFACE_NAME_IN_QUERYPROCESSED= MyxUtils.createName("QueryProcessed");
 	
 	private String CONFIGURATIONFILENAME = "";
+	private String CACHFILENAME = "";
 	private static final int INITIALDELAY = 5000;
 	
 	private ISensorAPI sensorAPI;
@@ -45,6 +76,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	public void init() {
 		Helper.INDEX++;
 		CONFIGURATIONFILENAME = "Configuration" + Helper.INDEX + ".txt";
+		CACHFILENAME = "Cache" + Helper.INDEX + ".txt";
 	}
 	
 	private void loadConfiguration()
@@ -95,7 +127,7 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 		
 		loadConfiguration();
 		int interval = configuration == null ? INITIALDELAY : configuration.getTimeInterval();
-		timer.scheduleAtFixedRate(new TemperatureManager(), INITIALDELAY, interval);
+		timer.scheduleAtFixedRate(new TemperatureManager(), INITIALDELAY, interval*1000);
 		
 	}
 	
@@ -149,14 +181,61 @@ public class ClientCore extends AbstractMyxSimpleBrick implements IClientService
 	}
 
 	@Override
-	public QueryResult Search(QueryParameter parameter) {
-		if (parameter.getLocation().toLowerCase().equals(configuration.getLocation().toLowerCase()))
-			return new QueryResult(sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName());
-		return null;
+	public List<QueryResult> Search(QueryParameter parameter) {
+				
+		//we only check the required query with current location of station. If we want to implement completely we have to search in log file.
+		if (!parameter.getLocation().toLowerCase().equals(configuration.getLocation().toLowerCase()))
+			return null;
+		
+		FileReader file;
+		List<QueryResult> results = new ArrayList<QueryResult>();
+		try 
+		{
+			File f = new File(CACHFILENAME);
+			
+			if (!f.exists())
+			{
+				results.add(new QueryResult(sensorAPI.CurrentTemperatureInC(), 
+						sensorAPI.CurrentTemperatureInC(), 
+						sensorAPI.CurrentTemperatureInC(), configuration.getDeviceName()));
+				return results;
+			}
+			
+			file = new FileReader(CACHFILENAME);
+			BufferedReader br = new BufferedReader(file);
+			String rawData; 
+			try 
+			{
+				while ((rawData = br.readLine()) != null)
+				{
+					String[] parts = rawData.split("#");
+					int hour = Integer.parseInt(parts[2]);
+					double temperature = Double.parseDouble(parts[1]);
+					
+					if (hour >= Calendar.HOUR - parameter.getHours())
+						results.add(new QueryResult(temperature, configuration.getDeviceName()));
+				}
+			
+				br.close();
+				file.close();
+				
+				
+			} 
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+		
+		if (results.size() == 0)
+			return null;
+		return results;
 	}
 
 	@Override
-	public void queryProcessed(QueryResult result) {
+	public void queryProcessed(List<QueryResult> result) {
 		guiSynchronizer.QueryResultReceived(result);
 	}
 }
