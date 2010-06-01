@@ -598,7 +598,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel SearchLabel;
     private javax.swing.ImageIcon WeatherIcon;
-    private int counter;
+    private int counter = 0;
     // End of variables declaration
 
 }
