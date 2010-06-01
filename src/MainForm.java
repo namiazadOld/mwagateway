@@ -466,7 +466,7 @@ public class MainForm extends javax.swing.JFrame {
         LocationLabel.setText(LocationTextField.getText());
         TimeLabel.setText(TimeIntervalTextField.getText());
         
-        clientService.ConfigurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Integer.parseInt(TimeLabel.getText())));
+        clientService.configurationSent(new Configuration(DeviceLabel.getText(), LocationLabel.getText(),Integer.parseInt(TimeLabel.getText())));
         ResultPanel.setText(null);
         }
     }                                                         
