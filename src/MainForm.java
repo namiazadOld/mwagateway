@@ -452,19 +452,11 @@ public class MainForm extends javax.swing.JFrame {
         ResultPanel.setText("Please fill the required information!");	
         
         }
-//        boolean digit = false;
-//        int i=0;
-//        while(!digit)
-//        {
-//        try{
-//            Integer.parseInt( TimeIntervalTextField.getText());
-//        } catch(NumberFormatException nfe) {
-//           i=0; 
-//           ResultPanel.setText("Please fill the Time interval textfield with numbers!");
-//           
-//        }
-//        if(i!=1) digit=true;
-//        }
+        
+        else if (CheckValidity(TimeIntervalTextField.getText())){
+        	ResultPanel.setText("Please fill the Time interval textfield with numbers!");
+        }
+
         else {
         	ChangeButton.setVisible(true);
             ChangeButtonPanel.setVisible(false);
@@ -502,36 +494,10 @@ public class MainForm extends javax.swing.JFrame {
     		 counter--;
     		
     	}
-//    	
-//    	
-//Boolean digit = false;
-//          if(!digit)
-//          {
-//          try{
-//              Integer.parseInt( QueryRadiusTextField.getText());
-//              
-//          } catch(NumberFormatException nfe) {
-//             
-//             ResultPanel.setText("Please fill the Radius textfield with numbers!");
-//             
-//          }
-//          else 
-//          }
-//          digit = false;
-//          i=0;
-//          while(!digit)
-//          {
-//          try{
-//              Integer.parseInt( QueryTimeTextField.getText());
-//              
-//          } catch(NumberFormatException nfe) {
-//             i=0; 
-//             ResultPanel.setText("Please fill the Time textfield with numbers!");
-//             
-//          }
-//          if(i!=1) digit=true;
-//          }
-//    		
+    	else if(!CheckValidity( QueryRadiusTextField.getText()) || !CheckValidity(QueryTimeTextField.getText())){
+    		
+    		ResultPanel.setText("Please fill the Radius and Time textfield with numbers!");
+    	}	
     	else { 
     	
     	
@@ -580,7 +546,15 @@ public class MainForm extends javax.swing.JFrame {
 			ResultPanel.append("Average Temperature :" + result.getAverage()+ "\r\n" );
 		}
     }
-
+ public boolean CheckValidity(String validation){
+	 int num;
+	 try { 
+		 num = Integer.parseInt (validation); 
+		 } catch (NumberFormatException E) { 
+			return false; 
+		 }
+	return true; 
+ }
     /**
     * @param args the command line arguments
     */
