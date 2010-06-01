@@ -49,7 +49,7 @@
             
         </types:componentType>
         <types:componentType types:id="componentTypeffa1126d-ceb46090-108a6fbd-cdb50253" xsi:type="implementation:VariantComponentTypeImpl">
-            <types:description xsi:type="instance:Description">Station</types:description>
+            <types:description xsi:type="instance:Description">ClientCore</types:description>
             <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280042" xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">SensorAPI</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
@@ -288,7 +288,7 @@
             
         </types:connectorType>
         <types:connectorType types:id="connectorTypeffa80168-e991265c-f374b9c0-602118e0" xsi:type="implementation:VariantConnectorTypeImpl">
-            <types:description xsi:type="instance:Description">Query Request EventPump</types:description>
+            <types:description xsi:type="instance:Description">Query Request Proxy</types:description>
             <types:signature types:id="signatureffa80164-2da4823f-c3750c0b-00280499" xsi:type="implementation:SignatureImpl">
                 <types:description xsi:type="instance:Description">in</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
@@ -576,7 +576,7 @@
     <types:archStructure types:id="archStructureffa1126d-ceb18230-66834e7f-cdb5024f" xsi:type="types:ArchStructure">
         <types:description xsi:type="instance:Description">Main</types:description>
         <types:component types:id="componentffa1126d-d4f4e2aa-13294fb3-cdb51659" xsi:type="types:Component">
-            <types:description xsi:type="instance:Description">Station</types:description>
+            <types:description xsi:type="instance:Description">ClientCore</types:description>
             <types:interface types:id="interfaceffa1126d-d4f4e2aa-f0f3cc5a-cdb5165a" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">SensorAPI</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
@@ -801,7 +801,7 @@
             <types:type xlink:href="#componentTypeffffffb0-ef426644-80a760fe-b5090cd1" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:component>
         <types:component types:id="componentffffffb0-ef9a3594-b6667d60-b5091c4f" xsi:type="types:Component">
-            <types:description xsi:type="instance:Description">Station</types:description>
+            <types:description xsi:type="instance:Description">ClientCore</types:description>
             <types:interface types:id="interfaceffffffb0-ef9a3594-54f8a6a5-b5091c50" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">SensorAPI</types:description>
                 <types:direction xsi:type="instance:Direction">out</types:direction>
@@ -995,7 +995,7 @@
             <types:type xlink:href="#connectorTypeffffffb0-ef463d9b-85cc9f07-b5090d82" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:connector>
         <types:connector types:id="connectorffffffb0-ef7122ce-6bbe9e12-b5091695" xsi:type="types:Connector">
-            <types:description xsi:type="instance:Description">Query Request EventPump</types:description>
+            <types:description xsi:type="instance:Description">Query Request Proxy</types:description>
             <types:interface types:id="interfaceffffffb0-ef7122ce-8b6317bb-b5091696" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">in</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
@@ -1011,7 +1011,7 @@
             <types:type xlink:href="#connectorTypeffa80168-e991265c-f374b9c0-602118e0" xlink:type="simple" xsi:type="instance:XMLLink"/>
         </types:connector>
         <types:connector types:id="connectorffffffb0-ef71e97a-b4b7e70c-b50916e4" xsi:type="types:Connector">
-            <types:description xsi:type="instance:Description">Query Request EventPump</types:description>
+            <types:description xsi:type="instance:Description">Query Request Proxy</types:description>
             <types:interface types:id="interfaceffffffb0-ef71e97a-af675acc-b50916e5" xsi:type="types:Interface">
                 <types:description xsi:type="instance:Description">in</types:description>
                 <types:direction xsi:type="instance:Direction">in</types:direction>
@@ -3758,6 +3758,23 @@
                     </hints3:property>
                 </hints3:hintedElement>
             </hints3:hintedElement>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             
