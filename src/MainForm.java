@@ -497,6 +497,7 @@ public class MainForm extends javax.swing.JFrame {
     	else if(!CheckValidity( QueryRadiusTextField.getText()) || !CheckValidity(QueryTimeTextField.getText())){
     		
     		ResultPanel.setText("Please fill the Radius and Time textfield with numbers!");
+    		counter--;
     	}	
     	else { 
     	
