@@ -30,7 +30,6 @@ public class QueryEngine extends AbstractMyxSimpleBrick implements IQueryHandler
 			return this;
 		if (name.equals(INTERFACE_NAME_OUT_QUERYPROCESSED))
 			return queryProcessed;
-		
 		return null;
 	}
 
